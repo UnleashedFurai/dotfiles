@@ -17,7 +17,6 @@
     ],
     "modules-right": [
         "tray",
-        "keyboard-state",
         "pulseaudio",
         "network",
         "battery",
