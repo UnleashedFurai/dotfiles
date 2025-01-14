@@ -22,11 +22,17 @@
     ],
 
     // Module configuration
-    // "hyprland/workspaces": {
-    //     "format": "{icon}",
-    //     "on-scroll-up": "hyprctl dispatch split-workspace e+1",
-    //     "on-scroll-down": "hyprctl dispatch split-workspace e-1",
-    // },
+    "hyprland/workspaces": {
+      // "format": "{icon}",
+      // "format-icons": {
+      //   "urgent": "",
+      //   "active": "", // focused workspace on current monitor 
+      //   "visible": "", // focused workspace on other monitors
+      //   "default": "",
+      //   "empty": "" // persistent (created by this plugin)
+      // },
+      "all-outputs": false // recommended
+    },
     "keyboard-state": {
         "numlock": true,
         "capslock": true,
