@@ -7,7 +7,8 @@
     "spacing": 0, // Gaps between modules (4px)
     // Choose the order of the modules
     "modules-left": [
-        "hyprland/workspaces",
+        //"hyprland/workspaces",
+        "custom/waybar-mpris",
     ],
     "modules-center": [
         "hyprland/window"
@@ -171,18 +172,6 @@
         },
         "on-click": "pavucontrol"
     },
-    "custom/media": {
-        "format": "{icon} {}",
-        "return-type": "json",
-        "max-length": 40,
-        "format-icons": {
-            "spotify": "",
-            "default": "🎜"
-        },
-        "escape": true,
-        "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
-        // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
-    },
     "custom/power": {
         "format" : "⏻ ",
 		"tooltip": false,
@@ -194,5 +183,15 @@
 			"suspend": "systemctl suspend",
 			"hibernate": "systemctl hibernate"
 		}
-    }
+    },
+    "custom/waybar-mpris": {
+        // requires waybar-mpris-git
+        //for some reason, scroll up and down are swapped, as are play and pause
+        "return-type": "json",
+        "exec": "waybar-mpris --autofocus --interpolate --play=\"■\" --pause=\"▶\" --order=\"SYMBOL:ARTIST:TITLE\"",
+        "on-click": "playerctl play-pause",
+        "on-scroll-up": "playerctl previous",
+        "on-scroll-down": "playerctl next",
+        "escape": true,
+    },
 }
