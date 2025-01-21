@@ -151,7 +151,7 @@
         "tooltip-format": "{ifname} via {gwaddr} ",
         "format-linked": "{ifname} (No IP) ",
         "format-disconnected": "Disconnected ⚠",
-        "on-click": "nm-connection-editor"
+        "on-click-right": "nm-connection-editor"
     },
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
@@ -170,7 +170,7 @@
             "car": "",
             "default": ["", "", ""]
         },
-        "on-click": "pavucontrol"
+        "on-click-right": "pavucontrol"
     },
     "custom/power": {
         "format" : "⏻ ",
