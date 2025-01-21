@@ -2,7 +2,7 @@
 {
     // "layer": "top", // Waybar at top layer
     // "position": "bottom", // Waybar position (top|bottom|left|right)
-    "height": 20, // Waybar height (to be removed for auto height)
+    "height": 24, // Waybar height (to be removed for auto height)
     // "width": 1280, // Waybar width
     "spacing": 0, // Gaps between modules (4px)
     // Choose the order of the modules
@@ -10,8 +10,8 @@
         "hyprland/workspaces",
     ],
     "modules-center": [
-        //"hyprland/window",
-        "custom/waybar-mpris",
+        "hyprland/window"//,
+        // "custom/waybar-mpris",
     ],
     "modules-right": [
         "idle_inhibitor",
@@ -151,7 +151,7 @@
         "tooltip-format": "{ifname} via {gwaddr} ",
         "format-linked": "{ifname} (No IP) ",
         "format-disconnected": "Disconnected ⚠",
-        "on-click": "nm-connection-editor"
+        "on-click-right": "nm-connection-editor"
     },
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
@@ -170,7 +170,7 @@
             "car": "",
             "default": ["", "", ""]
         },
-        "on-click": "pavucontrol"
+        "on-click-right": "pavucontrol"
     },
     "custom/power": {
         "format" : "⏻ ",
@@ -190,6 +190,7 @@
         "return-type": "json",
         "exec": "waybar-mpris --autofocus --interpolate --play=\"■\" --pause=\"▶\" --order=\"SYMBOL:ARTIST:TITLE\"",
         "on-click": "playerctl play-pause",
+        "on-click-right": "waybar-mpris --send player-next", 
         "on-scroll-up": "playerctl previous",
         "on-scroll-down": "playerctl next",
         "escape": true,
