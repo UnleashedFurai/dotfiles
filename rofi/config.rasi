@@ -4,6 +4,9 @@
  * Copyright: 2017 leofa
  ***********************************************/
 
+configuration {
+    modes:      [window,drun,calc];
+}
 * {
     selected-normal-foreground:  rgba ( 249, 249, 249, 100 % );
     foreground:                  rgba ( 196, 203, 212, 100 % );
