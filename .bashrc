@@ -20,8 +20,8 @@ alias s=sudo
 #alias n=nano
 alias vi=vim
 # learn vi buddy
-alias n="echo fuck you, you\' using vim && sleep 3 && vim"
-alias nano="echo fuck you, you\' using vim && sleep 3 && vim"
+alias n="echo fuck you, you\'re using vim && sleep 3 && vim"
+alias nano="echo fuck you, you\'re using vim && sleep 3 && vim"
 alias neofetch=fastfetch
 
 export PATH=$PATH:~/.local/bin
