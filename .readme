@@ -1,1 +1,1 @@
-make sure you symlink .nanorc and .bashrc to ~/.nanorc and ~/.bashrc
+make sure you symlink .vimrc and .bashrc to ~/.vimrc and ~/.bashrc
