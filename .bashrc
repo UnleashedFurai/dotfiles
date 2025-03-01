@@ -14,8 +14,6 @@ alias grep='grep --color=auto'
 PS1='[\u@\h \W]\$ '
 
 alias rm=trash
-alias yt-dlp-sb='yt-dlp --sponsorblock-mark all --sponsorblock-remove sponsor,selfpromo'
-alias auto-chap="/home/moth/Documents/various\ scripts/mkv/auto_chap.sh"
 alias s=sudo
 #alias n=nano
 alias vi=vim
