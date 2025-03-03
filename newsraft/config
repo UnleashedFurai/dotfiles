@@ -1,3 +1,4 @@
 bind m exec mpv "%l"
 bind i exec ~/.config/newsraft/qimgv "%l"
-bind o exec firefox "%l"
+bind o exec qutebrowser "%l"
+bind O exec firefox "%l"
