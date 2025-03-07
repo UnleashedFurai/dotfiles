@@ -7,7 +7,7 @@
 # otherwise start tmux
 # [[ -z "$TMUX" ]] && exec tmux
 
-fastfetch
+#fastfetch
 
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
