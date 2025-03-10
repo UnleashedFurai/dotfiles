@@ -1,4 +1,4 @@
-fastfetch
+#fastfetch
 
 alias rm=trash
 alias s=sudo
