@@ -6,6 +6,8 @@ filetype on
 set cursorline
 set relativenumber
 set expandtab
+set autoindent
+set smartindent
 set tabstop=4
 set nowrap
 set hlsearch
