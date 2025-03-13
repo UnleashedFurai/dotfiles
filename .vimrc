@@ -1,7 +1,7 @@
 set nocompatible
 
 filetype on
-syntax on
+" syntax on
 
 set cursorline
 set relativenumber
