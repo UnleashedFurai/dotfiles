@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =0
+let g:netrw_dirhist_0='/mnt/Weeb-Shit/Anime/Konosuba/Konosuba/Season 3/output'
+let g:netrw_dirhist_9='/home/moth/.config'
+let g:netrw_dirhist_8='/home/moth/Weeb-Shit'
+let g:netrw_dirhist_7='/home/moth/Downloads'
+let g:netrw_dirhist_6='/home/moth'
+let g:netrw_dirhist_5='/home/moth/Downloads'
+let g:netrw_dirhist_4='/home/moth/Weeb-Shit'
+let g:netrw_dirhist_3='/home/moth/.config'
+let g:netrw_dirhist_2='/home/moth/.config/gzdoom'
+let g:netrw_dirhist_1='/home/moth/.config/hypr'

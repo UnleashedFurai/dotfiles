@@ -1,0 +1,14 @@
+set nocompatible
+set filetype=on
+set syntax=off
+set cursorline
+set relativenumber
+set autoindent
+set smartindent
+set expandtab
+set smarttab
+set shiftwidth=4
+set tabstop=4
+set nowrap
+set hlsearch
+set scrolloff=5
