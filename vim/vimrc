@@ -12,3 +12,4 @@ set tabstop=4
 set nowrap
 set hlsearch
 set scrolloff=5
+set splitright
