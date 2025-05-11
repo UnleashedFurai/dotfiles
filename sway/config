@@ -25,7 +25,10 @@ exec hyprpaper
 exec playerctld daemon
 exec wl-clip-persist --clipboard regular
 exec swaync
-exec keepassxc
+
+# Non-system apps
+
+include ~/.config/sway/autostart
 
 
 ### Key bindings
