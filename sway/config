@@ -208,3 +208,4 @@ input type:pointer {
 }
 
 include /etc/sway/config.d/*
+include ~/.config/sway/config.d/*.conf
