@@ -15,7 +15,11 @@ set $file-manager thunar
 
 ### Startup apps
 
-exec hypridle
+exec swayidle -w \
+    timeout 300 'loginctl lock-session; swaymsg "output * dpms off"' \
+        resume 'swaymsg "output * dpms on"' \
+    before-sleep 'loginctl lock-session'
+
 exec waybar -c ~/.config/waybar/config-sway.jsonc
 exec hyprpaper
 exec playerctld daemon
