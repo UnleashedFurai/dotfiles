@@ -214,5 +214,9 @@ input type:pointer {
     pointer_accel 0
 }
 
+input type:keyboard {
+    xkb_numlock enabled
+}
+
 include /etc/sway/config.d/*
 include ~/.config/sway/config.d/*.conf
