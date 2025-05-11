@@ -24,6 +24,9 @@
 !rofi/
 !rofi/**
 
+!sway/
+!sway/**
+
 !waybar/
 !waybar/**
 
