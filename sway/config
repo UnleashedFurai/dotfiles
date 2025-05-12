@@ -15,7 +15,13 @@ set $file-manager thunar
 
 ### Startup apps
 
-exec hypridle
+set $lock hyprlock
+exec swayidle -w \
+    timeout 180 '$lock; swaymsg "output * dpms off"' \
+        resume 'swaymsg "output * dpms on"' \
+    timeout 300 'systemctl suspend' \
+    before-sleep '$lock'
+
 exec waybar -c ~/.config/waybar/config-sway.jsonc
 exec hyprpaper
 exec playerctld daemon
@@ -204,8 +210,13 @@ input type:touchpad {
     middle_emulation enabled
 }
 
-input type:mouse {
+input type:pointer {
     accel_profile flat
+    pointer_accel 0
+}
+
+input type:keyboard {
+    xkb_numlock enabled
 }
 
 include /etc/sway/config.d/*
