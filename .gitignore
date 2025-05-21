@@ -37,4 +37,5 @@
 !vim/**
 
 !.bashrc/
+!.tmux.conf/
 !.gitignore/
