@@ -15,10 +15,14 @@ set $file-manager thunar
 
 ### Startup apps
 
-set $lock "swaylock -i ~/.config/assets/wallpaper.png"
+set $lock "hyprlock"
+set $monitors_off "output * dpms off"
+set $monitors_on "output * dpms on"
 exec swayidle -w \
-    timeout 300 '$lock; swaymsg "output * dpms off"' \
-        resume 'swaymsg "output * dpms on"' \
+    timeout 10 'if pgrep $lock; then swaymsg $monitors_off; fi' \
+        resume 'swaymsg $monitors_on' \
+    timeout 300 '$lock & swaymsg $monitors_off' \
+        resume 'swaymsg $monitors_on' \
     before-sleep '$lock'
 
 exec waybar -c ~/.config/waybar/config-sway.jsonc
@@ -207,6 +211,9 @@ client.focused e3ceefff ffffffff 000000ff
 
 output DP-2 res 2560x1440@144Hz pos 0 0 
 output DP-3 res 1920x1080@144Hz pos 2560 250
+
+# virtual for wayvnc
+output virtual1 res 1280x720
 
 ### Input devices
 
