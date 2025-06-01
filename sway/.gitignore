@@ -1,1 +1,6 @@
-autostart
+*
+
+!config
+
+!config.d/
+!config.d/**
