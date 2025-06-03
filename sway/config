@@ -190,6 +190,12 @@ bindsym $mod+Shift+R mode "resize"
     # Special key to take a screenshot with grim
     # bindsym Print exec grim
 
+    # bind audio keys
+    bindsym --locked XF86AudioNext exec playerctl next
+    bindsym --locked XF86AudioPause exec playerctl play-pause
+    bindsym --locked XF86AudioPlay exec playerctl play-pause
+    bindsym --locked XF86AudioPrev exec playerctl previous
+
 
 ### Appearance
 
