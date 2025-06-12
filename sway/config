@@ -10,7 +10,7 @@ set $right L
 set $term foot
 set $menu rofi -show drun
 set $browser librewolf
-set $file-manager thunar
+set $file-manager foot -- yazi
 
 
 ### Startup apps
