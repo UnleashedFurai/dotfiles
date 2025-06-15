@@ -188,7 +188,8 @@ bindsym $mod+Shift+R mode "resize"
     bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
     bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
     # Special key to take a screenshot with grim
-    # bindsym Print exec grim
+    bindsym Print exec sway-screenshot -m region -s -o ~/Pictures/Screenshots
+    bindsym Shift+Print exec sway-screenshot -m window -s -o ~/Pictures/Screenshots
 
     # bind audio keys
     bindsym --locked XF86AudioNext exec playerctl next
