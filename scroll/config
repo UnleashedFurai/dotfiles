@@ -1,0 +1,42 @@
+include ~/.config/sway/*
+
+### Input
+
+# Trackpad
+#
+
+gesture_scroll_enable true
+gesture_scroll_fingers 3
+gesture_scroll_sensitivity 20
+
+# Keyboard
+#
+
+# Window Management
+bindsym --no-warn --no-repeat $mod+slash jump
+bindsym --no-warn --no-repeat $mod+M fit_size h active equal
+bindsym --no-warn --no-repeat $mod+P fit_size h visible proportional
+bindsym --no-warn --no-repeat $mod+Shift+P fit_size v visible proportional
+bindsym --no-warn --no-repeat $mod+O fit_size h visible equal
+bindsym --no-warn --no-repeat $mod+Shift+O fit_size v visible equal
+bindsym --no-warn --no-repeat $mod+U set_mode t
+bindsym --no-warn --no-repeat $mod+A pin beginning
+bindsym --no-warn --no-repeat $mod+Shift+A pin end
+
+mode "resize" {
+    bindsym --no-warn $left cycle_size h prev
+    bindsym --no-warn $right cycle_size h next
+    bindsym --no-warn $down cycle_size v prev
+    bindsym --no-warn $up cycle_size v next
+
+    bindsym --no-warn Left cycle_size h prev
+    bindsym --no-warn Right cycle_size h next
+    bindsym --no-warn Down cycle_size v prev
+    bindsym --no-warn Up cycle_size v next
+}
+
+align_reset_auto yes
+
+animations {
+    enabled no
+}
