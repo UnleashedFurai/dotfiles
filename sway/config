@@ -15,7 +15,7 @@ set $file-manager foot -- yazi
 
 ### Startup apps
 
-set $lock "hyprlock"
+set $lock "swaylock -F -f -s fill -i ~/.config/assets/lockscreen.png"
 set $monitors_off "output * dpms off"
 set $monitors_on "output * dpms on"
 exec swayidle -w \
