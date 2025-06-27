@@ -26,7 +26,6 @@ exec swayidle -w \
     before-sleep '$lock'
 
 exec waybar -c ~/.config/waybar/config-sway.jsonc
-exec hyprpaper
 exec playerctld daemon
 exec wl-clip-persist --clipboard regular
 exec swaync
@@ -220,6 +219,8 @@ client.focused e3ceefff ffffffff 000000ff
 output DP-2 res 2560x1440@144Hz pos 0 0 
 output DP-3 res 1920x1080@144Hz pos 2560 250
 
+# Wallpaper
+output * bg ~/.config/assets/wallpaper.png fill
 
 ### Input devices
 
