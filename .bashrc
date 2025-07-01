@@ -18,15 +18,11 @@ alias neofetch=fastfetch
 
 export PATH=$PATH:~/.local/bin
 
-#fix gzdoom on hyprland
+#fix gzdoom
 alias gzdoom='gzdoom -glversion 3.3'
 
 #fix dolphin-emu
 alias dolphin-emu='QT_QPA_PLATFORM=xcb dolphin-emu'
-
-#correctly launch ripcord-arch-libs from console
-#alias ripcord="env LD_PRELOAD=/usr/lib/ripcord/hook.so QT_QPA_PLATFORM_PLUGIN_PATH=/usr/lib/qt/plugins ripcord"
-
 
 #pyenv
 export PYENV_ROOT="$HOME/.pyenv"
