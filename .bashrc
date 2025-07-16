@@ -9,20 +9,18 @@
 
 #fastfetch
 
-alias ls='ls --color=auto'
-alias grep='grep --color=auto'
-
 alias rm=trash
 alias s=sudo
-alias neofetch=fastfetch
 
 export PATH=$PATH:~/.local/bin
 
-#fix gzdoom
-alias gzdoom='gzdoom -glversion 3.3'
-
-#fix dolphin-emu
-alias dolphin-emu='QT_QPA_PLATFORM=xcb dolphin-emu'
+if [[ $XDG_SESSION_TYPE = "wayland" ]]; then
+    #fix gzdoom
+    alias gzdoom='gzdoom -glversion 3.3'
+    
+    #fix dolphin-emu
+    alias dolphin-emu='QT_QPA_PLATFORM=xcb dolphin-emu'
+fi
 
 #pyenv
 export PYENV_ROOT="$HOME/.pyenv"

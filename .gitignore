@@ -3,33 +3,27 @@
 !assets/
 !assets/**
 
-!foot/
-!foot/**
+!i3/
+!i3/**
+
+!kitty/
+!kitty/**
 
 !mpv/
 !mpv/**
 
-!ncmpcpp/
-!ncmpcpp/**
-
 !newsraft/
 !newsraft/**
 
+!polybar/
+!polybar/**
+
 !rofi/
 !rofi/**
-
-!sway/
-!sway/**
-
-!waybar/
-!waybar/**
-
-!wlogout/
-!wlogout/**
 
 !vim/
 !vim/**
 
 !.bashrc/
-!.tmux.conf/
+!.xinitrc/
 !.gitignore/
