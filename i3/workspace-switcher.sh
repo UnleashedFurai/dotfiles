@@ -42,7 +42,7 @@ case "$function" in
                 i3-msg "workspace number $workspace_index"
                 ;;
             DP-3)
-                i3-msg "workspace number 1$workspace_index"
+                i3-msg "workspace number $(($workspace_index+10))"
                 ;;
             *)
                 i3-nagbar -m "error: current monitor not detected correctly"
@@ -55,7 +55,7 @@ case "$function" in
                 i3-msg "move container to workspace number $workspace_index"
                 ;;
             DP-3)
-                i3-msg "move container to workspace number 1$workspace_index"
+                i3-msg "move container to workspace number $(($workspace_index+10))"
                 ;;
             *)
                 i3-nagbar -m "error: current monitor not detected correctly"

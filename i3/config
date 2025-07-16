@@ -34,7 +34,7 @@ set $file-manager kitty -- yazi
    bindsym $mod+F5 reload
 
    # Launch logout menu
-   bindsym $mod+Delete exec xautolock -locknow
+   bindsym $mod+Delete exec ~/.local/bin/logout.sh
 
    # Exit i3 (logs you out of your Wayland session)
    bindsym $mod+Escape exec 'exit'
