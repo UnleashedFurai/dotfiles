@@ -14,7 +14,7 @@ alias s=sudo
 
 export PATH=$PATH:~/.local/bin
 
-if [ "$XDG_SESSION_TYPE"="wayland" ]; then
+if [ "$XDG_SESSION_TYPE" = "wayland" ]; then
     #fix gzdoom
     alias gzdoom='gzdoom -glversion 3.3'
     
