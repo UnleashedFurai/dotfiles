@@ -163,7 +163,7 @@ bindsym $mod+Shift+R mode "resize"
    bindsym  XF86MonBrightnessDown exec brightnessctl set 5%-
    bindsym  XF86MonBrightnessUp exec brightnessctl set 5%+
    # Special key to take a screenshot with grim
-   bindsym Print exec sway-screenshot -m region -s -o ~/Pictures/Screenshots
+   bindsym Print exec flameshot gui
 
    # bind audio keys
    bindsym  XF86AudioNext exec playerctl next
@@ -187,3 +187,4 @@ client.focused e3ceefff ffffffff 000000ff
 
 
 include ~/.config/i3/workspaces
+include ~/.config/i3/extra
