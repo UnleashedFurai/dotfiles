@@ -3,7 +3,7 @@ export QT_IM_MODULE='ibus'
 export GLFW_IM_MODULE='ibus'
 export XMODIFIERS='@IM=ibus'
 
-xrandr --output DP-2 --mode 2560x1440 --rate 120 --pos 0x0 --primary --output DP-3 --mode 1920x1080 --rate 120 --pos 2560x250
+xrandr --output DP-2 --mode 2560x1440 --rate 144 --pos 0x0 --primary --output DP-3 --mode 1920x1080 --rate 144 --pos 2560x250
 xinput set-prop "pointer:USB Gaming Mouse" "libinput Accel Profile Enabled" 0 1 0
 numlockx &
 
