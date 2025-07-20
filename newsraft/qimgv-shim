@@ -9,3 +9,5 @@ wget -O tmp "$i" | wait $! && qimgv tmp
 wait $!
 
 rm tmp
+
+exit 0
