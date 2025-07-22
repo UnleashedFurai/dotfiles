@@ -6,12 +6,12 @@ get_icon() {
   if [ -f "$STATUS_FILE" ]; then
     status=$(cat "$STATUS_FILE")
     if [ "$status" == "activated" ]; then
-      echo ""
+      echo "    "
     else
-      echo ""
+      echo "    "
     fi
   else
-    echo "" 
+    echo "    " 
   fi
 }
 
