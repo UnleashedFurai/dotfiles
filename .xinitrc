@@ -13,9 +13,8 @@ numlockx &
 dunst &
 unclutter --timeout 5 &
 
-lock="i3lock -F -i ~/.config/assets/lockscreen.png"
-monitors_on="xset dpms force on"
-monitors_off="xset dpms force off"
+lock="i3lock -F -i ~/.config/assets/lockscreen.png --redraw-thread"
+monitors_off="sleep 2; xset dpms force off"
 xautolock -detectsleep -time 10 -locker "$lock | $monitors_off" &
 
 ~/.xsecrets
