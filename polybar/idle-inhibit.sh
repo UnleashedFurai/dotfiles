@@ -20,10 +20,10 @@ toggle_status() {
 
   if [ "$current_status" == "activated" ]; then
     echo "deactivated" > "$STATUS_FILE"
-    xautolock -disable
+    xautolock -enable
   else
     echo "activated" > "$STATUS_FILE"
-    xautolock -enable
+    xautolock -disable
   fi
   # After toggling, force Polybar to update the module immediately
   polybar-msg hook idle-inhibitor 1 >/dev/null 2>&1
