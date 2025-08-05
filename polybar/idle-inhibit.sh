@@ -11,7 +11,9 @@ get_icon() {
       echo "    "
     fi
   else
-    echo "    " 
+    echo "  !!  " 
+    echo "deactivated" > "$STATUS_FILE"
+    xautolock -enable
   fi
 }
 
@@ -32,6 +34,7 @@ toggle_status() {
 case "$1" in
   "get")
     get_icon
+    sleep 1
     ;;
   "toggle")
     toggle_status
@@ -39,5 +42,6 @@ case "$1" in
   *)
     # Default behavior if no argument or unknown argument (same as "get")
     get_icon
+    sleep 1
     ;;
 esac
