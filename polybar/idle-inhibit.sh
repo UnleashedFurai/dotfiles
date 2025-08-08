@@ -17,6 +17,10 @@ get_icon() {
   fi
 }
 
+get_status() {
+    echo "$(cat $STATUS_FILE)"
+}
+
 toggle_status() {
   current_status=$(cat "$STATUS_FILE" 2>/dev/null || echo "deactivated")
 
@@ -27,13 +31,15 @@ toggle_status() {
     echo "activated" > "$STATUS_FILE"
     xautolock -disable
   fi
-  # After toggling, force Polybar to update the module immediately
-  polybar-msg hook idle-inhibitor 1 >/dev/null 2>&1
 }
 
 case "$1" in
   "get")
     get_icon
+    sleep 1
+    ;;
+  "status")
+    get_status
     sleep 1
     ;;
   "toggle")
