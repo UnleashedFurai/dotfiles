@@ -9,6 +9,7 @@
 
 #fastfetch
 
+alias yay=paru
 alias rm=trash
 alias s=sudo
 
