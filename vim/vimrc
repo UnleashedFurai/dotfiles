@@ -4,6 +4,7 @@ call plug#begin()
 Plug 'pseewald/vim-anyfold'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'ourway/vim-bruin'
+Plug 'EdenEast/nightfox.nvim'
 
 call plug#end()
 
@@ -27,6 +28,7 @@ set splitright
 
 let g:rehash256 = 1
 colorscheme bruin 
+" colorscheme carbonfox
 
 noremap zz za
 nnoremap za zz
