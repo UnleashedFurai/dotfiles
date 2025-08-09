@@ -24,6 +24,9 @@
 !vim/
 !vim/**
 
+!yazi/
+!yazi/**
+
 !.bashrc
 !.xinitrc
 !.gitignore
