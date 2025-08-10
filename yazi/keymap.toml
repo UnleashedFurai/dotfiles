@@ -10,11 +10,16 @@ run  = "plugin archivemount unmount"
 desc = "Unmount and save changes to original archive"
 
 
-# ouch.yazi
+# compress.yazi
 [[mgr.prepend_keymap]]
-on = ["c", "c"]
-run = "plugin ouch"
-desc = "Compress with ouch"
+on   = [ "c", "c" ]
+run  = "plugin compress '-l9'"
+desc = "Archive selected files"
+
+[[mgr.prepend_keymap]]
+on   = [ "c", "p" ]
+run  = "plugin compress '-p -l9'"
+desc = "Archive selected files (password)"
 
 
 # jump-to-char.yazi
