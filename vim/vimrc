@@ -4,8 +4,7 @@ call plug#begin()
 Plug 'pseewald/vim-anyfold'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'chriszarate/yazi.vim'
-Plug 'ourway/vim-bruin'
-Plug 'EdenEast/nightfox.nvim'
+" Plug 'EdenEast/nightfox.nvim'
 
 call plug#end()
 
@@ -27,8 +26,8 @@ set hlsearch
 set scrolloff=5
 set splitright
 
-let g:rehash256 = 1
-colorscheme bruin 
+set background=dark
+colorscheme quiet
 " colorscheme carbonfox
 
 noremap zz za
