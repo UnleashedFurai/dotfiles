@@ -13,6 +13,9 @@ numlockx &
 dunst &
 unclutter --timeout 5 &
 
+# essentially just using for vsync (to stop tearing)
+picom &
+
 lock="i3lock -F -i ~/.config/assets/lockscreen.png --redraw-thread"
 monitors_off="sleep 2; xset dpms force off"
 xautolock -detectsleep -time 10 -locker "$lock | $monitors_off" &

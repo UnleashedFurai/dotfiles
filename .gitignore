@@ -15,6 +15,9 @@
 !newsraft/
 !newsraft/**
 
+!picom/
+!picom/**
+
 !polybar/
 !polybar/**
 
