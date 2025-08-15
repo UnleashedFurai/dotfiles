@@ -16,11 +16,11 @@ unclutter --timeout 5 &
 # essentially just using for vsync (to stop tearing)
 picom &
 
-lock="i3lock -u -F -i ~/.config/assets/lockscreen.png --clock --redraw-thread"
+lock="i3lock -u -F -i ~/.config/assets/lockscreen.png --clock" 
 monitors_off="xset dpms force off"
 xidlehook --not-when-fullscreen \
-    --timer 5 'if pgrep i3lock; then "$monitors_off"; fi' '' \
-    --timer 300 "$lock" '' --timer 5 "$monitors_off" '' \
+    --timer 5 "if pgrep i3lock; then $monitors_off; fi" '' \
+    --timer 300 "$lock" '' \
     --socket /tmp/idle.sock &
 
 ~/.xsecrets
