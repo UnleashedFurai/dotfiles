@@ -1,6 +1,6 @@
 {
     "label" : "lock",
-    "action" : "hyprlock",
+    "action" : "swaylock -F -f -s fill -i ~/.config/assets/lockscreen.png",
     "text" : "Lock",
     "keybind" : "l"
 }
