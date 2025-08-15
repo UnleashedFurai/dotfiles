@@ -1,53 +1,30 @@
 #!/usr/bin/env bash
 
-STATUS_FILE="/tmp/polybar_idle_inhibitor_status"
-
-get_icon() {
-  if [ -f "$STATUS_FILE" ]; then
-    status=$(cat "$STATUS_FILE")
-    if [ "$status" == "activated" ]; then
-      echo "    "
-    else
-      echo "    "
-    fi
-  else
-    echo "  !!  " 
-    echo "deactivated" > "$STATUS_FILE"
-    xautolock -enable
-  fi
-}
+XIDLEHOOK_SOCK="/tmp/idle.sock"
 
 get_status() {
-    echo "$(cat $STATUS_FILE)"
+    socket=$(xidlehook-client --socket "$XIDLEHOOK_SOCK" query | grep disabled\s*.*true)
+    if [ "$socket" ]; then
+        echo "disabled"
+    else
+        echo "enabled"
+    fi
 }
 
 toggle_status() {
-  current_status=$(cat "$STATUS_FILE" 2>/dev/null || echo "deactivated")
-
-  if [ "$current_status" == "activated" ]; then
-    echo "deactivated" > "$STATUS_FILE"
-    xautolock -enable
-  else
-    echo "activated" > "$STATUS_FILE"
-    xautolock -disable
-  fi
+    if [ $(get_status) == "disabled" ]; then
+        xidlehook-client --socket "$XIDLEHOOK_SOCK" control --action Enable
+    else
+        xidlehook-client --socket "$XIDLEHOOK_SOCK" control --action Disable
+    fi
 }
 
 case "$1" in
-  "get")
-    get_icon
-    sleep 1
-    ;;
-  "status")
-    get_status
-    sleep 1
-    ;;
-  "toggle")
-    toggle_status
-    ;;
-  *)
-    # Default behavior if no argument or unknown argument (same as "get")
-    get_icon
-    sleep 1
-    ;;
+    "status")
+        get_status
+        sleep 1
+        ;;
+    "toggle")
+        toggle_status
+        ;;
 esac

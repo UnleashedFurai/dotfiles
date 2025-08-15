@@ -17,8 +17,11 @@ unclutter --timeout 5 &
 picom &
 
 lock="i3lock -u -F -i ~/.config/assets/lockscreen.png --clock --redraw-thread"
-monitors_off="sleep 2; xset dpms force off"
-xautolock -detectsleep -time 10 -locker "$lock | $monitors_off" &
+monitors_off="xset dpms force off"
+xidlehook --not-when-fullscreen \
+    --timer 5 'if pgrep i3lock; then "$monitors_off"; fi' '' \
+    --timer 300 "$lock" '' --timer 5 "$monitors_off" '' \
+    --socket /tmp/idle.sock &
 
 ~/.xsecrets
 
