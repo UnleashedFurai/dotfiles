@@ -1,16 +1,11 @@
 [[plugin.deps]]
-use = "AnirudhG07/archivemount"
-rev = "3d353c4"
-hash = "28caf2541e627582e75add7a9f98a32a"
-
-[[plugin.deps]]
 use = "macydnah/office"
 rev = "33cc61a"
 hash = "d7e31c616cc6c8a1f05fdff7c47dae98"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:jump-to-char"
-rev = "de53d90"
+rev = "e95c7b3"
 hash = "d2f04875bbd4ed3dd5696e8c4b094fde"
 
 [[plugin.deps]]
@@ -20,8 +15,8 @@ hash = "92fbb5483657fa7976cdf4e0104e18e0"
 
 [[plugin.deps]]
 use = "KKV9/compress"
-rev = "9fc8fe0"
-hash = "2ad086899bf368fba211a33d8f68c39d"
+rev = "c264639"
+hash = "e17c11b605d989568a1d1741ca17c584"
 
 [flavor]
 deps = []

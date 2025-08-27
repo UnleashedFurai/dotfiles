@@ -1,15 +1,3 @@
-# archivemount.yazi
-[[mgr.prepend_keymap]]
-on   = [ "a", "m" ]
-run  = "plugin archivemount mount"
-desc = "Mount selected archive"
-
-[[mgr.prepend_keymap]]
-on   = [ "a", "u" ]
-run  = "plugin archivemount unmount"
-desc = "Unmount and save changes to original archive"
-
-
 # compress.yazi
 [[mgr.prepend_keymap]]
 on   = [ "c", "c" ]
