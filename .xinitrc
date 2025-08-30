@@ -5,8 +5,8 @@ export XMODIFIERS='@IM=ibus'
 
 xrandr --output DP-2 --mode 2560x1440 --rate 120 --pos 0x0 --primary --output DP-3 --mode 1920x1080 --rate 120 --pos 2560x250
 
-mouse_set="xinput set-prop "pointer:USB Gaming Mouse" "libinput Accel Profile Enabled" 0 1 0"
-"$mouse_set"
+mouse_set='xinput set-prop "pointer:USB Gaming Mouse" "libinput Accel Profile Enabled" 0 1 0'
+eval "$mouse_set"
 
 xset dpms 0 0 0
 xset s noblank
@@ -27,7 +27,7 @@ lock="i3lock -u -F -i ~/.config/assets/lockscreen.png --clock"
 monitors_off="xset dpms force off"
 xidlehook --not-when-fullscreen \
     --timer 5 "if pgrep i3lock; then $monitors_off; fi" \
-        "$mouse_set" \
+        'eval "$mouse_set"' \
     --timer 300 "$lock" '' \
     --socket /tmp/idle.sock &
 
