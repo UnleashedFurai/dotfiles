@@ -162,7 +162,7 @@ bindsym $mod+Shift+R mode "resize"
    # Special keys to adjust brightness via brightnessctl
    bindsym  XF86MonBrightnessDown exec brightnessctl set 5%-
    bindsym  XF86MonBrightnessUp exec brightnessctl set 5%+
-   # Special key to take a screenshot with grim
+   # Special key to take a screenshot with flameshot
    bindsym Print exec flameshot gui
 
    # bind audio keys
@@ -180,6 +180,8 @@ default_floating_border pixel 2
 gaps inner 0
 gaps outer 0
 hide_edge_borders smart
+
+font pango:FontAwesome 10
 
 # Colours
 #
