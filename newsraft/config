@@ -1,3 +1,3 @@
-bind m exec mpv "%l"
+bind m exec ~/.config/newsraft/mpv-shim "%l"
 bind i exec ~/.config/newsraft/qimgv-shim "%l"
 bind o exec ~/.config/newsraft/librewolf-shim "%l"
