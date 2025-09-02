@@ -206,8 +206,12 @@ nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
 
-
-
 " enable/disable coc by filetype
 " https://github.com/neoclide/coc.nvim/issues/349#issuecomment-850799867
-let g:coc_filetypes_enable = [ 'c', 'cpp', 'h', 'hpp', 'cs', 'java', 'rs', 'py', 'sh' ]
+function! s:enable_coc_for_type()
+        let l:filesuffix_whitelist = ['c', 'cpp', 'h', 'hpp', 'cs', 'java', 'sh', 'py']
+	if index(l:filesuffix_whitelist, expand('%:e')) == -1
+		let b:coc_enabled = 0
+	endif
+endfunction
+autocmd BufRead,BufNewFile * call s:enable_coc_for_type()
