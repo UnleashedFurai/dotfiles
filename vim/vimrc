@@ -36,6 +36,9 @@ nnoremap <silent> - :Yazi<cr>
 nnoremap <silent> _ :YaziWorkingDirectory<cr>
 
 
+autocmd FileType markdown,text,tex setlocal spell
+
+
 " recommended vim-anyfold config
 
 filetype plugin indent on " required
