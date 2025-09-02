@@ -12,6 +12,7 @@
 alias yay=paru
 alias rm=trash
 alias s=sudo
+alias sedit=sudoedit
 
 export PATH=$PATH:~/.local/bin
 
