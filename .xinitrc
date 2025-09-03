@@ -20,6 +20,8 @@ numlockx &
 dunst &
 unclutter --timeout 5 &
 
+warpd &
+
 # essentially just using for vsync (to stop tearing)
 picom &
 
