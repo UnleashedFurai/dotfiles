@@ -233,4 +233,7 @@ input type:keyboard {
 bindswitch --reload --locked lid:on exec 'systemctl suspend | "$lock"'
 bindsym --locked XF86PowerOff exec 'systemctl suspend | "$lock"'
 
+bindsym Control+semicolon exec 'warpd --normal'
+bindsym Control+Shift+semicolon exec 'warpd --grid'
+
 include /etc/sway/config.d/*
