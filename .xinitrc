@@ -28,6 +28,7 @@ picom &
 lock="i3lock -u -F -i ~/.config/assets/lockscreen.png --clock" 
 monitors_off="xset dpms force off"
 xidlehook --not-when-fullscreen \
+    --not-when-audio \
     --timer 5 "if pgrep i3lock; then $monitors_off; fi" \
         'eval "$mouse_set"' \
     --timer 300 "$lock" '' \
