@@ -25,7 +25,7 @@ warpd &
 # essentially just using for vsync (to stop tearing)
 picom &
 
-lock="i3lock -u -F -i ~/.config/assets/lockscreen.png --clock" 
+lock="loginctl lock-session | i3lock -u -F -i ~/.config/assets/lockscreen.png"
 monitors_off="xset dpms force off"
 xidlehook --not-when-fullscreen \
     --not-when-audio \

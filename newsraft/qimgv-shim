@@ -4,7 +4,7 @@ cd ~/.config/newsraft
 
 i="$@"
 
-wget -O tmp "$i" | wait $! && qimgv tmp
+wget -O tmp "$i" | wait $! && qimgv tmp &
 
 wait $!
 
