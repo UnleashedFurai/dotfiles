@@ -216,8 +216,8 @@ client.focused e3ceefff ffffffff 000000ff
 
 ### Monitors
 
-output DP-2 res 2560x1440@144Hz pos 0 0 
-output DP-3 res 1920x1080@144Hz pos 2560 250
+output DP-2 res 2560x1440@120Hz pos 0 0
+output DP-3 res 1920x1080@120Hz pos 2560 250
 
 # Wallpaper
 output * bg ~/.config/assets/wallpaper.png fill
