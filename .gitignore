@@ -24,11 +24,17 @@
 !rofi/
 !rofi/**
 
+!sway/
+!sway/**
+
 !vim/
 !vim/**
 
 !warpd/
 !warpd/**
+
+!waybar/
+!waybar/**
 
 !yazi/
 !yazi/**
