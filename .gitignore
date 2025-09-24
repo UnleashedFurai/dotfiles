@@ -36,6 +36,9 @@
 !waybar/
 !waybar/**
 
+!wlogout/
+!wlogout/**
+
 !yazi/
 !yazi/**
 
