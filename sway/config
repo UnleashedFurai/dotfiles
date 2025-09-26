@@ -19,7 +19,7 @@ set $lock "swaylock -F -f -s fill -i ~/.config/assets/lockscreen.png"
 set $monitors_off "output * dpms off"
 set $monitors_on "output * dpms on"
 exec swayidle -w \
-    timeout 10 'if pgrep swaylock; then swaymsg $monitors_off; fi' \
+    timeout 5 'if pgrep swaylock; then swaymsg $monitors_off; fi' \
         resume 'swaymsg $monitors_on' \
     timeout 300 '$lock & swaymsg $monitors_off' \
         resume 'swaymsg $monitors_on' \
