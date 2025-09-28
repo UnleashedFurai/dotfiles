@@ -100,9 +100,10 @@ set $file-manager kitty -- yazi
    # bindsym $mod+v splitv
 
    # Switch the current container between different layout styles
-   bindsym $mod+O layout stacking
-   bindsym $mod+I layout tabbed
-   bindsym $mod+U layout toggle split
+   bindsym $mod+equal layout tabbed
+   bindsym $mod+minus layout toggle split
+   bindsym $mod+bracketright split h
+   bindsym $mod+bracketleft split v
 
    # Make the current focus fullscreen
    bindsym $mod+F11 fullscreen
