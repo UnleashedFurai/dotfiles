@@ -5,7 +5,8 @@
 }
 
 window#waybar {
-    background-color: rgba(43, 48, 59, 1);
+    /* background-color: rgba(43, 48, 59, 1); */
+    background-color: rgba(00, 00, 00, 1);
     /* border-bottom: 3px solid rgba(100, 114, 125, 0.5); */
     /* color: #ffffff; */
     color: @main-fg;

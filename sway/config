@@ -1,4 +1,4 @@
-### Variables
+## Variables
 
 # set mod to super
 set $mod Mod4
@@ -27,7 +27,7 @@ exec waybar -c ~/.config/waybar/config-sway.jsonc
 exec playerctld daemon
 exec wl-clip-persist --clipboard regular
 exec swaync
-exec keepassxc
+exec keepassxc --minimized
 
 
 ### Key bindings
@@ -113,9 +113,10 @@ exec keepassxc
 # Layout stuff:
 #
     # Switch the current container between different layout styles
-    bindsym $mod+O layout stacking
-    bindsym $mod+I layout tabbed
-    bindsym $mod+U layout toggle split
+    bindsym $mod+equal layout tabbed
+    bindsym $mod+minus layout toggle split
+    bindsym $mod+bracketleft split v
+    bindsym $mod+bracketright split h
 
     # Make the current focus fullscreen
     bindsym $mod+F11 fullscreen
@@ -209,10 +210,11 @@ output * bg ~/.config/assets/wallpaper.png fill
 
 input type:touchpad {
     dwt enabled
-    tap enabled
+    # tap enabled
     natural_scroll enabled
+    scroll_method edge
     middle_emulation enabled
-    events disabled
+    # events disabled
 }
 bindsym XF86TouchpadToggle input type:touchpad events toggle enabled disabled
 
@@ -233,7 +235,8 @@ input type:keyboard {
 bindswitch --reload --locked lid:on exec 'systemctl suspend | "$lock"'
 bindsym --locked XF86PowerOff exec 'systemctl suspend | "$lock"'
 
-bindsym Control+semicolon exec 'warpd --normal'
-bindsym Control+Shift+semicolon exec 'warpd --grid'
+# bindsym Control+semicolon exec 'warpd --normal'
+# bindsym Control+Shift+semicolon exec 'warpd --grid'
+bindsym $mod+semicolon exec 'warpd --normal'
 
 include /etc/sway/config.d/*
