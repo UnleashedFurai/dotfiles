@@ -210,11 +210,10 @@ output * bg ~/.config/assets/wallpaper.png fill
 
 input type:touchpad {
     dwt enabled
-    # tap enabled
+    tap enabled
     natural_scroll enabled
-    scroll_method edge
     middle_emulation enabled
-    # events disabled
+    events disabled
 }
 bindsym XF86TouchpadToggle input type:touchpad events toggle enabled disabled
 
