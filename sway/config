@@ -54,7 +54,7 @@ exec keepassxc --minimized
     bindsym $mod+Delete exec wlogout
 
     # Exit sway (logs you out of your Wayland session)
-    bindsym $mod+Escape exec 'swaymsg exit'
+    # bindsym $mod+Escape exec 'swaymsg exit'
 
 # Moving around:
 #
