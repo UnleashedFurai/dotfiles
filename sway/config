@@ -212,7 +212,7 @@ seat * hide_cursor 5000
 
 # Colours
 #
-client.focused e3ceefff ffffffff 000000ff
+client.focused #e3ceefff #ffffffff #000000ff
 
 
 ### Monitors

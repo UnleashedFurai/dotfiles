@@ -164,7 +164,7 @@ bindsym $mod+Shift+R mode "resize"
    bindsym  XF86MonBrightnessDown exec brightnessctl set 5%-
    bindsym  XF86MonBrightnessUp exec brightnessctl set 5%+
    # Special key to take a screenshot with flameshot
-   bindsym Print exec flameshot gui
+   bindsym Print exec flameshot gui -p ~/Pictures/Screenshots
 
    # bind audio keys
    bindsym  XF86AudioNext exec playerctl next
@@ -186,7 +186,7 @@ font pango:FontAwesome 10
 
 # Colours
 #
-client.focused e3ceefff ffffffff 000000ff
+client.focused #e3ceefff #ffffffff #000000ff
 
 
 include ~/.config/i3/workspaces
