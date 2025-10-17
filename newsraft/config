@@ -1,4 +1,4 @@
 bind m exec ~/.config/newsraft/mpv-shim "%l"
-bind i exec ~/.config/newsraft/qimgv-shim "%l"
+bind i exec ~/.config/newsraft/mpv-shim "%l"
 bind o exec cha "%l"
 bind O exec ~/.config/newsraft/librewolf-shim "%l"
