@@ -54,3 +54,4 @@
 !.bashrc
 !.xinitrc
 !.gitignore
+!dotfiles-install.sh
