@@ -59,7 +59,7 @@ InfoStoreAdd files "$[infostore.terminal] -- yazi"
 DestroyFunc StartFunction
 AddToFunc   StartFunction
 + I Test (Init) InitBackground
-+ I Test (Init) Module FvwmBanner
+#+ I Test (Init) Module FvwmBanner
 + I Module FvwmButtons RightPanel
 + I Module FvwmEvent EventNewDesk
 
