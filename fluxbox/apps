@@ -1,0 +1,13 @@
+[app] (name=fbrun)
+  [Position]	(CENTER)	{0 0}
+  [Layer]	{2}
+[end]
+[app] (name=) (class=)
+  [Dimensions]	{40% 56%}
+  [Maximized]	{yes}
+[end]
+[app] (name=kitty) (class=kitty)
+[end]
+[app] (name=Navigator) (class=librewolf) (role=browser)
+  [Dimensions]	{76% 69%}
+[end]

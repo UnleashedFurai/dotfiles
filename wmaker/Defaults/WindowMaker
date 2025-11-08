@@ -1,0 +1,112 @@
+{
+  DontLinkWorkspaces = NO;
+  FrameBorderColor = "#000000";
+  FTitleColor = "#ffffff";
+  ScreenCaptureKey = None;
+  MenuDisabledColor = "#666666";
+  PixmapPath = (
+    "/home/moth/GNUstep/Library/WindowMaker/Pixmaps",
+    "/home/moth/GNUstep/Library/WindowMaker/Backgrounds",
+    "/home/moth/GNUstep/Library/WindowMaker/CachedPixmaps",
+    "~/pixmaps",
+    "/usr/share/WindowMaker/Pixmaps",
+    "/usr/share/WindowMaker/Backgrounds",
+    "/usr/share/pixmaps"
+  );
+  HotCornerEdge = 2;
+  IconTitleBack = "#000000";
+  HideKey = None;
+  MaximizeKey = "Mod4+Up";
+  ClipTitleFont = "Verdana:bold:pixelsize=10";
+  IconTitleFont = "Arial,sans serif:pixelsize=9";
+  LargeDisplayFont = "Trebuchet MS,sans serif:pixelsize=24";
+  IconificationStyle = none;
+  CenterKey = None;
+  MoveDisplay = none;
+  IconTitleColor = "#ffffff";
+  MoveToWorkspace2Key = "Mod4+Shift+2";
+  MenuTitleColor = "#ffffff";
+  MenuTitleFont = "Trebuchet MS,sans serif:bold:pixelsize=12";
+  HotCorners = NO;
+  MoveTo6to12Head = None;
+  DbClickFullScreen = NO;
+  IconPosition = tlh;
+  NoWindowOverDock = YES;
+  OmnipresentKey = "Mod4+p";
+  WorkspaceBack = (
+    tpixmap,
+    "/usr/share/WindowMaker/Themes/STEP2000.themed/BlueImage2.jpeg",
+    "rgb:51/55/61"
+  );
+  HighlightTextColor = "#000000";
+  EdgeResistance = 80;
+  EnforceIconMargin = YES;
+  AutoArrangeIcons = YES;
+  ClipTitleColor = "#000000";
+  MoveTo12to6Head = None;
+  HotCornerActions = (None, None, None, None);
+  IgnoreFocusClick = YES;
+  FrameFocusedBorderColor = "#000000";
+  WindowTitleFont = "Noto Serif Gurmukhi:slant=0:weight=80:width=100:pixelsize=12";
+  WindowPlaceOrigin = (0, 0);
+  Workspace8Key = "Mod4+8";
+  Workspace9Key = "Mod4+9";
+  LHMaximizeKey = "Mod4+Left";
+  MoveToPrevWorkspaceKey = "Mod4+Control+Left";
+  Workspace4Key = "Mod4+4";
+  DisplayFont = "-*-helvetica-medium-r-normal-*-12-*-*-*-*-*-*-*";
+  Workspace5Key = "Mod4+5";
+  KbdModeLock = NO;
+  Workspace6Key = "Mod4+6";
+  Workspace7Key = "Mod4+7";
+  CloseRootMenuByLeftOrRightMouseClick = NO;
+  Workspace1Key = "Mod4+1";
+  Workspace2Key = "Mod4+2";
+  Workspace3Key = "Mod4+3";
+  MoveToWorkspace1Key = "Mod4+Shift+1";
+  RHMaximizeKey = "Mod4+Right";
+  FrameSelectedBorderColor = "#ffffff";
+  MiniaturizeKey = "Mod4+Down";
+  Superfluous = NO;
+  ToggleKbdModeKey = None;
+  DragMaximizedWindow = RestoreGeometry;
+  ShadeKey = "Mod1+Up";
+  MaximusKey = "Mod4+F";
+  OpaqueResize = YES;
+  HotCornerDelay = 250;
+  CycleWorkspaces = YES;
+  DisableAnimations = YES;
+  DisableDithering = YES;
+  MenuTextColor = "#000000";
+  AntialiasedText = YES;
+  LowerKey = None;
+  WorkspaceNameDisplayPosition = none;
+  WindowListKey = F10;
+  MenuTextFont = "Trebuchet MS,sans serif:pixelsize=12";
+  MoveToNextWorkspaceKey = "Mod4+Control+Right";
+  MouseWheelAction = SwitchWorkspaces;
+  CloseKey = "Mod4+W";
+  HighlightColor = "#ffffff";
+  FocusMode = sloppy;
+  WrapMenus = YES;
+  MoveToWorkspace3Key = "Mod4+Shift+3";
+  Workspace10Key = "Mod4+0";
+  DisableDrawers = YES;
+  CClipTitleColor = "#333333";
+  IconPath = (
+    "/home/moth/GNUstep/Library/Icons",
+    "/home/moth/GNUstep/Library/WindowMaker/Pixmaps",
+    "/home/moth/GNUstep/Library/WindowMaker/CachedPixmaps",
+    "~/pixmaps",
+    "/usr/share/WindowMaker/Icons",
+    "/usr/share/WindowMaker/Pixmaps",
+    "/usr/share/pixmaps"
+  );
+  RaiseKey = None;
+  ModifierKey = Mod4;
+  UTitleColor = "#000000";
+  CirculateRaise = YES;
+  PTitleColor = "#ffffff";
+  ResizeDisplay = none;
+  MoveToWorkspace4Key = "Mod4+Shift+4";
+}
