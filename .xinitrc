@@ -19,7 +19,7 @@ numlockx &
 dunst &
 unclutter --timeout 5 &
 
-warpd &
+# warpd &
 
 # essentially just using for vsync (to stop tearing)
 picom &
@@ -50,7 +50,7 @@ xidlehook --not-when-audio \
 ~/.xsecrets
 
 # declaring a window manager here allows me to hotswap to other window managers
-i3 &
+fvwm &
 
 # to exit x, just kill sleep
 sleep infinity

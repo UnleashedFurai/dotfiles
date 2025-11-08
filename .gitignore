@@ -3,6 +3,12 @@
 !assets/
 !assets/**
 
+!fluxbox/
+!fluxbox/**
+
+!fvwm/
+!fvwm/**
+
 !i3/
 !i3/**
 
@@ -38,6 +44,9 @@
 
 !wlogout/
 !wlogout/**
+
+!wmaker/
+!wmaker/**
 
 !yazi/
 !yazi/**
