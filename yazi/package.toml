@@ -1,11 +1,11 @@
 [[plugin.deps]]
 use = "macydnah/office"
-rev = "33cc61a"
-hash = "d7e31c616cc6c8a1f05fdff7c47dae98"
+rev = "41ebef8"
+hash = "5805affd3ae8adcb3c72b6997d21c0a6"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:jump-to-char"
-rev = "d1c8baa"
+rev = "8f1d971"
 hash = "ce67445ebb1bf3d97b8e44f50904b2c5"
 
 [[plugin.deps]]

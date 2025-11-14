@@ -625,8 +625,10 @@ DestroyModuleConfig FvwmIconMan:*
 *FvwmIconMan: Action Mouse 0 A ret
 *FvwmIconMan: Action Mouse 1 A sendcommand IconManClick
 *FvwmIconMan: Action Mouse 3 A sendcommand "Menu MenuIconOps"
-*FvwmIconMan: Resolution global
-*FvwmIconMan: Tips needed
+#*FvwmIconMan: Resolution global
+*FvwmIconMan: Resolution desk
+#*FvwmIconMan: Tips needed
+*FvwmIconMan: Tips never
 *FvwmIconMan: Sort id
 
 # FvwmEvent

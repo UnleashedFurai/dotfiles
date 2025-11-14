@@ -1,13 +1,13 @@
 {
-  vesktop.vesktop = {
-    EmulateAppIcon = Yes;
+  default.default = {
     IgnoreDecorationChanges = Yes;
   };
   feishin.feishin = {
     EmulateAppIcon = Yes;
     Icon = feishin.feishin.xpm;
   };
-  default.default = {
+  vesktop.vesktop = {
+    EmulateAppIcon = Yes;
     IgnoreDecorationChanges = Yes;
   };
   picard.Picard = {
