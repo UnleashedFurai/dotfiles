@@ -442,6 +442,9 @@ Silent Key XF86AudioPause A A Exec playerctl play-pause
 Silent Key XF86AudioPlay A A Exec playerctl play-pause
 Silent Key XF86AudioPrev A A Exec playerctl previous
 
+Silent Key Print A 4 Exec ~/.local/bin/dp2-toggle.sh
+Silent Key Print A 1 Exec ~/.local/bin/ocr-screenshot.sh
+
 #alt tab
 DestroyFunc FuncAltTab
 AddToFunc   FuncAltTab
