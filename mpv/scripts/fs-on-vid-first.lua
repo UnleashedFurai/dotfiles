@@ -4,7 +4,8 @@ local first = true
 local get_ext = {
     png=true, jpg=true, jpeg=true, webp=true, gif=true, avif=true, 
     bmp=true, tiff=true, cbz=true, cbr=true, cb7=true, flac=true, 
-    opus=true, mp3=true, aac=true, alac=true, wav=true, m4a=true
+    opus=true, mp3=true, aac=true, alac=true, wav=true, m4a=true,
+    psd=true
 }
 
 local function is_illegal(fname)

@@ -9,6 +9,7 @@ local ext = {
 	".jpeg",
 	".jxl",
 	".png",
+    ".psd",
 	".rar",
 	".tar",
 	".tif",
