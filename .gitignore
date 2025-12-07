@@ -33,6 +33,9 @@
 !sway/
 !sway/**
 
+!tmux/
+!tmux/**
+
 !vim/
 !vim/**
 
