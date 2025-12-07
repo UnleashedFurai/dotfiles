@@ -632,7 +632,7 @@ DestroyModuleConfig FvwmIconMan:*
 #*FvwmIconMan: Resolution global
 *FvwmIconMan: Resolution desk
 #*FvwmIconMan: Tips needed
-*FvwmIconMan: Tips never
+*FvwmIconMan: Tips False
 *FvwmIconMan: Sort id
 
 # FvwmEvent
