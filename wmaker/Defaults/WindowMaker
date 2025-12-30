@@ -15,8 +15,8 @@
   );
   HotCornerEdge = 2;
   IconTitleBack = "#000000";
-  HideKey = None;
   MaximizeKey = "Mod4+Up";
+  HideKey = None;
   ClipTitleFont = "Verdana:bold:pixelsize=10";
   IconTitleFont = "Arial,sans serif:pixelsize=9";
   LargeDisplayFont = "Trebuchet MS,sans serif:pixelsize=24";
@@ -44,12 +44,12 @@
   AutoArrangeIcons = YES;
   ClipTitleColor = "#000000";
   MoveTo12to6Head = None;
-  HotCornerActions = (None, None, None, None);
   IgnoreFocusClick = YES;
+  HotCornerActions = (None, None, None, None);
   FrameFocusedBorderColor = "#000000";
   WindowTitleFont = "Noto Serif Gurmukhi:slant=0:weight=80:width=100:pixelsize=12";
-  WindowPlaceOrigin = (0, 0);
   Workspace8Key = "Mod4+8";
+  WindowPlaceOrigin = (0, 0);
   Workspace9Key = "Mod4+9";
   LHMaximizeKey = "Mod4+Left";
   MoveToPrevWorkspaceKey = "Mod4+Control+Left";
@@ -59,8 +59,8 @@
   KbdModeLock = NO;
   Workspace6Key = "Mod4+6";
   Workspace7Key = "Mod4+7";
-  CloseRootMenuByLeftOrRightMouseClick = NO;
   Workspace1Key = "Mod4+1";
+  CloseRootMenuByLeftOrRightMouseClick = NO;
   Workspace2Key = "Mod4+2";
   Workspace3Key = "Mod4+3";
   MoveToWorkspace1Key = "Mod4+Shift+1";
@@ -80,8 +80,8 @@
   MenuTextColor = "#000000";
   AntialiasedText = YES;
   LowerKey = None;
-  WorkspaceNameDisplayPosition = none;
   WindowListKey = F10;
+  WorkspaceNameDisplayPosition = none;
   MenuTextFont = "Trebuchet MS,sans serif:pixelsize=12";
   MoveToNextWorkspaceKey = "Mod4+Control+Right";
   MouseWheelAction = SwitchWorkspaces;
@@ -89,8 +89,8 @@
   HighlightColor = "#ffffff";
   FocusMode = sloppy;
   WrapMenus = YES;
-  MoveToWorkspace3Key = "Mod4+Shift+3";
   Workspace10Key = "Mod4+0";
+  MoveToWorkspace3Key = "Mod4+Shift+3";
   DisableDrawers = YES;
   CClipTitleColor = "#333333";
   IconPath = (

@@ -5,7 +5,6 @@ if [[ ! "$(pwd)" == "$HOME/.config" ]]; then
     exit 1
 fi
 
-ln -s ~/.config/fluxbox ~/.fluxbox
 ln -s ~/.config/fvwm ~/.fvwm
 ln -s ~/.config/vim ~/.vim
 ln -s ~/.config/vim/vimrc ~/.vimrc
