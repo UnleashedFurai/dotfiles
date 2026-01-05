@@ -128,20 +128,7 @@
       Clip = {
         AutoRaiseLower = No;
         AutoCollapse = Yes;
-        Applications = (
-          {
-            Forced = No;
-            Name = anki.Anki;
-            DropCommand = "/usr/bin/python /usr/bin/anki %d";
-            BuggyApplication = No;
-            AutoLaunch = No;
-            Position = "2,0";
-            Lock = No;
-            PasteCommand = "/usr/bin/python /usr/bin/anki %s";
-            Command = "/usr/bin/python /usr/bin/anki";
-            Omnipresent = No;
-          }
-        );
+        Applications = ();
         Collapsed = Yes;
         AutoAttractIcons = Yes;
         Lowered = Yes;

@@ -3,12 +3,6 @@
 !assets/
 !assets/**
 
-!fluxbox/
-!fluxbox/**
-
-!fvwm/
-!fvwm/**
-
 !i3/
 !i3/**
 
@@ -30,9 +24,6 @@
 !rofi/
 !rofi/**
 
-!sway/
-!sway/**
-
 !tmux/
 !tmux/**
 
@@ -41,12 +32,6 @@
 
 !warpd/
 !warpd/**
-
-!waybar/
-!waybar/**
-
-!wlogout/
-!wlogout/**
 
 !wmaker/
 !wmaker/**
