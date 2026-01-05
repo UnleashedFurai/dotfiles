@@ -1,0 +1,27 @@
+[[plugin.deps]]
+use = "macydnah/office"
+rev = "41ebef8"
+hash = "5805affd3ae8adcb3c72b6997d21c0a6"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:jump-to-char"
+rev = "398796d"
+hash = "ce67445ebb1bf3d97b8e44f50904b2c5"
+
+[[plugin.deps]]
+use = "dedukun/bookmarks"
+rev = "9ef1254"
+hash = "92fbb5483657fa7976cdf4e0104e18e0"
+
+[[plugin.deps]]
+use = "boydaihungst/mediainfo"
+rev = "31c143a"
+hash = "89e540aad3e89e4136446f10d1a88f1b"
+
+[[plugin.deps]]
+use = "boydaihungst/compress"
+rev = "4f8076c"
+hash = "c289cbd67adf8ff630c44fd55c2d312b"
+
+[flavor]
+deps = []
