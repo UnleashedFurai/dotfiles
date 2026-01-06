@@ -11,8 +11,6 @@ numlockx &
 dunst &
 unclutter --timeout 5 &
 
-# warpd &
-
 # essentially just using for vsync (to stop tearing)
 picom &
 
@@ -39,5 +37,6 @@ xidlehook --not-when-audio \
     --timer 300 "$lock" '' \
     --socket /tmp/idle.sock &
 
+keepassxc &
 polybar &
 i3
