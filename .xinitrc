@@ -1,8 +1,3 @@
-xinput set-prop "DELL08B8:00 0488:121F Mouse" "libinput Scroll Method Enabled" 0 0 1
-xinput set-prop "DELL08B8:00 0488:121F Mouse" "libinput Accel Speed" .5
-
-xinput set-prop 'DELL08B8:00 0488:121F Touchpad' "libinput Natural Scrolling Enabled" 1
-
 numlockx &
 
 # points to ~/.config/assets/wallpaper.png
@@ -14,8 +9,6 @@ unclutter --timeout 5 &
 # essentially just using for vsync (to stop tearing)
 picom &
 
-# lock="loginctl lock-session | i3lock -F -i ~/.config/assets/lockscreen.png"
-# locker='i3lock'
 lock="loginctl lock-session | env \
 XSECURELOCK_PASSWORD_PROMPT=time_hex \
 XSECURELOCK_BLANK_TIMEOUT=10 \
@@ -30,11 +23,11 @@ XSECURELOCK_SAVER=saver_mpv \
 XSECURELOCK_LIST_VIDEOS_COMMAND='find ~/.config/assets/lockscreen.png' \
 XSECURELOCK_IMAGE_DURATION_SECONDS=3600 \
 XSECURELOCK_SAVER_DELAY_MS=2 xsecurelock"
-locker='xsecurelock'
-monitors_off="xset dpms force off"
+suspend="loginctl suspend"
+
 xidlehook --not-when-audio \
-    --timer 5 "if pgrep $locker; then $monitors_off; fi" '' \
     --timer 300 "$lock" '' \
+    --timer 600 "$suspend" '' \
     --socket /tmp/idle.sock &
 
 keepassxc &
