@@ -5,7 +5,7 @@
  ***********************************************/
 
 configuration {
-    modes:      [window,drun,calc];
+    modes:      [window,drun];
 }
 * {
     selected-normal-foreground:  rgba ( 249, 249, 249, 100 % );
