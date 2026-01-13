@@ -5,7 +5,6 @@ if [[ ! "$(pwd)" == "$HOME/.config" ]]; then
     exit 1
 fi
 
-ln -s ~/.config/vim ~/.vim
 ln -s ~/.config/wmaker ~/GNUstep
 ln -s ~/.config/.bashrc ~/.bashrc
 ln -s ~/.config/.xinitrc ~/.xinitrc
