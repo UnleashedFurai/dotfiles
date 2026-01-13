@@ -17,7 +17,7 @@ set cursorline
 set relativenumber
 set autoindent
 set smartindent
-set expandtab
+" set expandtab
 set smarttab
 set shiftwidth=4
 set tabstop=4
