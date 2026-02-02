@@ -6,7 +6,7 @@ numlockx &
 dunst &
 unclutter --timeout 5 &
 
-# essentially just using for vsync (to stop tearing)
+# essentially just using for vsync
 picom &
 
 lock="loginctl lock-session | env \

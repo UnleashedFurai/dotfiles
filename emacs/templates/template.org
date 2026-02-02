@@ -1,0 +1,13 @@
+#+options: toc:nil
+
+#+latex_compiler: lualatex
+#+latex_class: article
+#+latex_class_options: [12pt]
+#+latex_header: \usepackage[letterpaper, margin=1in]{geometry}
+#+latex_header: \usepackage{fontspec}
+#+latex_header: \setmainfont{Gandhi Sans}
+#+latex_header: \usepackage{setspace}
+#+latex_header: \doublespacing
+#+latex_header: \usepackage{embedfile}
+#+latex_header: \embedfile{@@FILE@@}
+#+latex_header: \setlength{\parindent}{2em}
