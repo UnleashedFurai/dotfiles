@@ -17,13 +17,9 @@ numlockx &
 dunst &
 unclutter --timeout 5 &
 
-# warpd &
-
-# essentially just using for vsync (to stop tearing)
+# essentially just using for vsync
 picom &
 
-# lock="loginctl lock-session | i3lock -F -i ~/.config/assets/lockscreen.png"
-# locker='i3lock'
 lock="loginctl lock-session | env \
 XSECURELOCK_PASSWORD_PROMPT=time_hex \
 XSECURELOCK_BLANK_TIMEOUT=10 \
@@ -38,10 +34,8 @@ XSECURELOCK_SAVER=saver_mpv \
 XSECURELOCK_LIST_VIDEOS_COMMAND='find ~/.config/assets/lockscreen.png' \
 XSECURELOCK_IMAGE_DURATION_SECONDS=3600 \
 XSECURELOCK_SAVER_DELAY_MS=2 xsecurelock"
-locker='xsecurelock'
-monitors_off="xset dpms force off"
+
 xidlehook --not-when-audio \
-    --timer 5 "if pgrep $locker; then $monitors_off; fi" '' \
     --timer 300 "$lock" '' \
     --socket /tmp/idle.sock &
 
