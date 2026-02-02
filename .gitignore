@@ -3,6 +3,9 @@
 !assets/
 !assets/**
 
+!emacs/
+!emacs/**
+
 !i3/
 !i3/**
 
