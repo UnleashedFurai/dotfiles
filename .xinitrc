@@ -22,7 +22,7 @@ XSECURELOCK_KEY_XF86AudioRaiseVolume_COMMAND='pactl set-sink-volume \@DEFAULT_SI
 XSECURELOCK_SAVER=saver_mpv \
 XSECURELOCK_LIST_VIDEOS_COMMAND='find ~/.config/assets/lockscreen.png' \
 XSECURELOCK_IMAGE_DURATION_SECONDS=3600 \
-XSECURELOCK_SAVER_DELAY_MS=2 xsecurelock"
+XSECURELOCK_SAVER_DELAY_MS=3 xsecurelock"
 suspend="loginctl suspend"
 
 xidlehook --not-when-audio \
