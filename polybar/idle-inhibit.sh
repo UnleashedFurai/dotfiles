@@ -1,30 +1,27 @@
 #!/usr/bin/env bash
 
 XIDLEHOOK_SOCK="/tmp/idle.sock"
+MODULE="idle"
 
-get_status() {
-    socket=$(xidlehook-client --socket "$XIDLEHOOK_SOCK" query | grep disabled\s*.*true)
-    if [ "$socket" ]; then
-        echo "disabled"
-    else
-        echo "enabled"
-    fi
+is_disabled() {
+	xidlehook-client --socket "$XIDLEHOOK_SOCK" query | grep -q "disabled.*true"
 }
 
-toggle_status() {
-    if [ $(get_status) == "disabled" ]; then
-        xidlehook-client --socket "$XIDLEHOOK_SOCK" control --action Enable
-    else
-        xidlehook-client --socket "$XIDLEHOOK_SOCK" control --action Disable
-    fi
+toggle() {
+	if is_disabled; then
+		xidlehook-client --socket "$XIDLEHOOK_SOCK" control --action Enable
+		polybar-msg hook "$MODULE" 1
+	else
+		xidlehook-client --socket "$XIDLEHOOK_SOCK" control --action Disable
+		polybar-msg hook "$MODULE" 2
+	fi
 }
 
 case "$1" in
-    "status")
-        get_status
-        sleep 1
-        ;;
-    "toggle")
-        toggle_status
+	toggle)
+		toggle
+		;;
+    status)
+		is_disabled && echo "disabled" || echo "enabled"
         ;;
 esac
