@@ -116,3 +116,8 @@
 (use-package flyspell
   :ensure nil
   :hook (text-mode . flyspell-mode))
+
+;; c-type langs indent specification
+(use-package cc-mode
+  :hook (c-mode-common . (lambda()
+			   (setq c-basic-offset 4))))

@@ -36,7 +36,7 @@ set $file-manager kitty -- yazi
    # Launch logout menu
    bindsym $mod+Delete exec ~/.local/bin/logout.sh
 
-   # Exit i3 (logs you out of your Wayland session)
+   # Exit i3 (logs you out of your X session)
    bindsym $mod+Escape exec 'exit'
 
 # Moving around:

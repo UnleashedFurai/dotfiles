@@ -35,8 +35,7 @@ noremap z. zz
 nnoremap <silent> - :Yazi<cr>
 nnoremap <silent> _ :YaziWorkingDirectory<cr>
 
-autocmd FileType text,markdown,tex setlocal spell
-
+autocmd FileType markdown,text,tex setlocal spell
 
 
 " recommended vim-anyfold config
