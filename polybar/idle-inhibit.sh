@@ -10,10 +10,10 @@ is_disabled() {
 toggle() {
 	if is_disabled; then
 		xidlehook-client --socket "$XIDLEHOOK_SOCK" control --action Enable
-		polybar-msg hook "$MODULE" 1
+		polybar-msg hook "$MODULE" 2
 	else
 		xidlehook-client --socket "$XIDLEHOOK_SOCK" control --action Disable
-		polybar-msg hook "$MODULE" 2
+		polybar-msg hook "$MODULE" 1
 	fi
 }
 
