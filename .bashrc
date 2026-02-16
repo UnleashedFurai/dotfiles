@@ -7,7 +7,6 @@
 # otherwise start tmux
 # [[ -z "$TMUX" ]] && exec tmux
 
-alias yay=paru
 alias rm=trash
 alias s=sudo
 alias sedit=sudoedit
