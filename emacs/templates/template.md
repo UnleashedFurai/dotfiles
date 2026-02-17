@@ -9,5 +9,5 @@ header-includes:
 	- \doublespacing
 	- \usepackage{embedfile}
 	- \embedfile{@@FILE@@}
-	- \setlength{\parindent}{2em}
+	- \setlength{\parindent}{.5in}
 ---
