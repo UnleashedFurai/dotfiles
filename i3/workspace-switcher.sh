@@ -38,10 +38,10 @@ done < <(xrandr | grep ' connected')
 case "$function" in
     change)
         case "$current_monitor" in
-            DP-2)
+            DisplayPort-1)
                 i3-msg "workspace number $workspace_index"
                 ;;
-            DP-3)
+            DisplayPort-2)
                 i3-msg "workspace number $(($workspace_index+10))"
                 ;;
             *)
@@ -51,10 +51,10 @@ case "$function" in
         ;;
     move)
         case "$current_monitor" in
-            DP-2)
+            DisplayPort-1)
                 i3-msg "move container to workspace number $workspace_index"
                 ;;
-            DP-3)
+            DisplayPort-2)
                 i3-msg "move container to workspace number $(($workspace_index+10))"
                 ;;
             *)
