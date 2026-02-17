@@ -73,6 +73,12 @@
   :config
   (smex-initialize))
 
+;; org-mode
+(use-package org
+  :ensure nil
+  :config
+  (setq org-export-backends '(ascii html latex md odt)))
+
 ;; autoinsert templates
 (use-package autoinsert
   :ensure nil
