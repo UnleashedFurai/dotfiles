@@ -10,4 +10,4 @@
 #+latex_header: \doublespacing
 #+latex_header: \usepackage{embedfile}
 #+latex_header: \embedfile{@@FILE@@}
-#+latex_header: \setlength{\parindent}{2em}
+#+latex_header: \setlength{\parindent}{.5in}

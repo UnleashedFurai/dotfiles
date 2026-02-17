@@ -116,6 +116,8 @@
          (pandoc-mode . pandoc-load-default-settings)))
 
 (use-package olivetti
+  :config
+  (olivetti-set-width 86)
   :hook ((markdown-mode . olivetti-mode)
          (text-mode . olivetti-mode)))
 
