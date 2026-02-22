@@ -42,7 +42,7 @@ xidlehook --not-when-audio \
 ~/.xsecrets
 
 # declaring a window manager here allows me to hotswap to other window managers
-wmaker &
+i3 &
 
 # to exit x, just kill sleep
 sleep infinity
