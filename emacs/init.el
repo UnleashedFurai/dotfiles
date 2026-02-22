@@ -40,6 +40,9 @@
   ;; disable cursor blink
   (blink-cursor-mode 0)
 
+  ;; general indent specification
+  (setq-default tab-width 4)
+
   ;; backups
   (setq backup-directory-alist 
 		'(("." . ,(expand-file-name ".backup" user-emacs-directory))))
