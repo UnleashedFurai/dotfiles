@@ -5,8 +5,8 @@ hash = "5805affd3ae8adcb3c72b6997d21c0a6"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:jump-to-char"
-rev = "88990a6"
-hash = "ce67445ebb1bf3d97b8e44f50904b2c5"
+rev = "6047ce4"
+hash = "7a4b4237223aaa94e589d1c01a23542a"
 
 [[plugin.deps]]
 use = "dedukun/bookmarks"
