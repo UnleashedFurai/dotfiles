@@ -60,7 +60,13 @@
         evil-want-C-u-scroll t)
   :config
   (evil-mode 1)
-  (evil-set-undo-system 'undo-redo))
+  (evil-set-undo-system 'undo-redo)
+  ;; noremap zz za
+  (define-key evil-normal-state-map (kbd "z z")
+			  #'evil-toggle-fold)
+  ;; noremap z. zz
+  (define-key evil-normal-state-map (kbd "z .")
+			  #'evil-scroll-line-to-center))
 
 (use-package evil-collection
   :after evil
