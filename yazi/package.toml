@@ -5,7 +5,7 @@ hash = "5805affd3ae8adcb3c72b6997d21c0a6"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:jump-to-char"
-rev = "6047ce4"
+rev = "b224ddf"
 hash = "7a4b4237223aaa94e589d1c01a23542a"
 
 [[plugin.deps]]
@@ -15,8 +15,8 @@ hash = "92fbb5483657fa7976cdf4e0104e18e0"
 
 [[plugin.deps]]
 use = "boydaihungst/mediainfo"
-rev = "8ab04b2"
-hash = "bdd196f71aa3e6aa02d1b1d6cad22424"
+rev = "20ecff6"
+hash = "ad48b4d2fd8f429ce87b0fddf7f34c9"
 
 [[plugin.deps]]
 use = "boydaihungst/compress"
