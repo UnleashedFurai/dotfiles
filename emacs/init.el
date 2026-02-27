@@ -84,13 +84,12 @@
 
 ;; org-mode
 (use-package org
-  :ensure nil
+  :defer t
   :config
   (setq org-export-backends '(ascii html latex md odt)))
 
 ;; autoinsert templates
 (use-package autoinsert
-  :ensure nil
   :init
   (auto-insert-mode 1)
   (setq auto-insert-query nil
@@ -118,13 +117,16 @@
          auto-insert-alist)))
 
 ;; markdown
-(use-package markdown-mode)
+(use-package markdown-mode
+  :defer t)
 
 (use-package pandoc-mode
+  :defer t
   :hook ((markdown-mode . pandoc-mode)
          (pandoc-mode . pandoc-load-default-settings)))
 
 (use-package olivetti
+  :defer t
   :config
   (olivetti-set-width 86)
   :hook ((markdown-mode . olivetti-mode)
@@ -132,10 +134,12 @@
 
 ;; basic text editing
 (use-package flyspell
+  :defer t
   :ensure nil
   :hook (text-mode . flyspell-mode))
 
 ;; c-type langs indent specification
 (use-package cc-mode
-  :hook (c-mode-common . (lambda()
-			   (setq c-basic-offset 4))))
+  :defer t
+  :config
+  (setq-default c-basic-offset 4))
