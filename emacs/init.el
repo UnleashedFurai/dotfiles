@@ -70,9 +70,14 @@
 
 (use-package evil-collection
   :after evil
-  :ensure t
   :config
   (evil-collection-init))
+
+;; hs-minor-mode for folding
+(use-package hs-minor-mode
+  :ensure nil
+  :after evil
+  :hook (prog-mode . hs-minor-mode))
 
 ;; smex
 (use-package smex
@@ -143,3 +148,19 @@
   :defer t
   :config
   (setq-default c-basic-offset 4))
+
+(use-package term
+  :config
+  (defun term-other-window ()
+	"Open term in the other window."
+	(interactive)
+	(let ((shell (getenv "SHELL"))
+		  other)
+	  (setq other (if (= 1 (length (window-list)))
+					  (if (> (window-width) (* 2 (window-height)))
+						  (split-window-right)
+						(split-window-below))
+					(next-window)))
+	  (select-window other)
+	  (term shell)))
+  (define-key ctl-x-4-map (kbd "t") 'term-other-window))
