@@ -164,3 +164,18 @@
 	  (select-window other)
 	  (term shell)))
   (define-key ctl-x-4-map (kbd "t") 'term-other-window))
+
+(use-package tidal
+  :defer t
+  :config
+  (defun tidal-start-haskell-hidden ()
+	(save-window-excursion
+	  (tidal-start-haskell)))
+  :hook (tidal-mode . tidal-start-haskell-hidden))
+
+(use-package haskell-mode
+  :ensure nil
+  :config
+  (defun tidal-start-supercollider ()
+	(start-process "sclang" "*sclang*" "sclang"))
+  :hook (tidal-mode . tidal-start-supercollider))
