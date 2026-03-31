@@ -1,7 +1,7 @@
 numlockx &
 
 # points to ~/.config/assets/wallpaper.png
-~/.fehbg &
+# ~/.fehbg &
 
 dunst &
 unclutter --timeout 5 &
@@ -18,12 +18,13 @@ XSECURELOCK_KEY_XF86AudioNext_COMMAND='playerctl next' \
 XSECURELOCK_KEY_XF86AudioPrev_COMMAND='playerctl previous' \
 XSECURELOCK_KEY_XF86AudioMute_COMMAND='pactl set-sink-mute \@DEFAULT_SINK@ toggle' \
 XSECURELOCK_KEY_XF86AudioLowerVolume_COMMAND='pactl set-sink-volume \@DEFAULT_SINK@ -5%' \
-XSECURELOCK_KEY_XF86AudioRaiseVolume_COMMAND='pactl set-sink-volume \@DEFAULT_SINK@ +5%' \
-XSECURELOCK_SAVER=saver_mpv \
-XSECURELOCK_LIST_VIDEOS_COMMAND='find ~/.config/assets/lockscreen.png' \
-XSECURELOCK_IMAGE_DURATION_SECONDS=3600 \
-XSECURELOCK_SAVER_DELAY_MS=3 xsecurelock"
+XSECURELOCK_KEY_XF86AudioRaiseVolume_COMMAND='pactl set-sink-volume \@DEFAULT_SINK@ +5%'"
 suspend="loginctl suspend"
+
+# XSECURELOCK_SAVER=saver_mpv \
+# XSECURELOCK_LIST_VIDEOS_COMMAND='find ~/.config/assets/lockscreen.png' \
+# XSECURELOCK_IMAGE_DURATION_SECONDS=3600 \
+# XSECURELOCK_SAVER_DELAY_MS=3 xsecurelock"
 
 xidlehook --not-when-audio \
     --timer 300 "$lock" '' \
@@ -32,4 +33,5 @@ xidlehook --not-when-audio \
 
 keepassxc &
 polybar &
-i3
+emacs --daemon -f exwm-wm-mode
+exec emacsclient -c
