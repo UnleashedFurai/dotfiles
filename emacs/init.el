@@ -66,6 +66,12 @@
 		 (markdown-mode . display-fill-column-indicator-mode)
 		 (latex-mode . display-fill-column-indicator-mode)))
 
+(use-package compile
+  :ensure nil
+  :defer t
+  :config
+  (setq compile-command ""))
+
 (use-package evil
   :init
   (setq evil-want-integration t
@@ -87,7 +93,7 @@
   (evil-collection-init))
 
 ;; hs-minor-mode for folding
-(use-package hs-minor-mode
+(use-package hideshow
   :ensure nil
   :after evil
   :hook (prog-mode . hs-minor-mode))
