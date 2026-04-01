@@ -14,28 +14,14 @@
 (use-package emacs
   :init
   ;; set window size
-  (if (window-system)
-      (set-frame-size (selected-frame) 90 40))
+  ;; (if (window-system)
+  ;;    (set-frame-size (selected-frame) 90 40))
 
   ;; disable splash screen / menu bars
   (setq inhibit-startup-screen t)
   (menu-bar-mode 0)
   (tool-bar-mode 0)
   (scroll-bar-mode 0)
-
-  ;; highlight current line
-  (global-hl-line-mode 1)
-
-  ;; relative line numbers
-  (setq display-line-numbers-type 'relative)
-  (global-display-line-numbers-mode 1)
-
-  ;; fill column indicator at 80
-  (setq-default fill-column 80)
-  (global-display-fill-column-indicator-mode 1)
-
-  ;; follow mode
-  (follow-mode 1)
 
   ;; disable cursor blink
   (blink-cursor-mode 0)
@@ -52,7 +38,40 @@
 			   (expand-file-name "themes" user-emacs-directory))
   (load-theme 'quiet t))
 
-;; evil mode
+(use-package hl-line
+  :ensure nil
+  :defer t
+  :hook ((prog-mode . hl-line-mode)
+		 (org-mode . hl-line-mode)
+		 (markdown-mode . hl-line-mode)
+		 (latex-mode . hl-line-mode)))
+
+(use-package display-line-numbers
+  :ensure nil
+  :defer t
+  :config
+  (setq display-line-numbers-type 'relative)
+  :hook ((prog-mode . display-line-numbers-mode)
+		 (org-mode . display-line-numbers-mode)
+		 (markdown-mode . display-line-numbers-mode)
+		 (latex-mode . display-line-numbers-mode)))
+
+(use-package display-fill-column-indicator
+  :ensure nil
+  :defer t
+  :config
+  (setq-default fill-column 80)
+  :hook ((prog-mode . display-fill-column-indicator-mode)
+		 (org-mode . display-fill-column-indicator-mode)
+		 (markdown-mode . display-fill-column-indicator-mode)
+		 (latex-mode . display-fill-column-indicator-mode)))
+
+(use-package compile
+  :ensure nil
+  :defer t
+  :config
+  (setq compile-command ""))
+
 (use-package evil
   :init
   (setq evil-want-integration t
@@ -74,12 +93,11 @@
   (evil-collection-init))
 
 ;; hs-minor-mode for folding
-(use-package hs-minor-mode
+(use-package hideshow
   :ensure nil
   :after evil
   :hook (prog-mode . hs-minor-mode))
 
-;; smex
 (use-package smex
   :bind (("M-x" . smex)
          ("M-X" . smex-major-mode-commands)
@@ -149,7 +167,7 @@
   :config
   (setq-default c-basic-offset 4))
 
-(use-package term
+(use-package vterm
   :config
   (defun term-other-window ()
 	"Open term in the other window."
@@ -162,7 +180,7 @@
 						(split-window-below))
 					(next-window)))
 	  (select-window other)
-	  (term shell)))
+	  (vterm shell)))
   (define-key ctl-x-4-map (kbd "t") 'term-other-window))
 
 (use-package tidal
