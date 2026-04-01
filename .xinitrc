@@ -33,5 +33,4 @@ xidlehook --not-when-audio \
 
 keepassxc &
 polybar &
-emacs --daemon -f exwm-wm-mode
-exec emacsclient -c
+exec emacs

@@ -29,6 +29,8 @@
   ;; general indent specification
   (setq-default tab-width 4)
 
+  (setq load-prefer-newer t)
+
   ;; backups
   (setq backup-directory-alist 
 		'(("." . ,(expand-file-name ".backup" user-emacs-directory))))
@@ -194,6 +196,10 @@
    				  (,(kbd "s-k") . windmove-up)
    				  (,(kbd "s-l") . windmove-right)
    				  (,(kbd "s-b") . switch-to-buffer)
+				  (,(kbd "s-SPC") . (lambda (cmd)
+									(interactive (list
+												  (read-shell-command "$ ")))
+									(start-process-shell-command cmd nil cmd)))
 				  (,(kbd "s-<escape>") . exwm-reset))))
   (dotimes (i 10)
 	(exwm-input-set-key (kbd (format "s-%d" (if (= i 9) 0 (1+ i))))
@@ -213,15 +219,16 @@
   (add-hook 'exwm-update-class-hook 'exwm-rename-buffer)
   (add-hook 'exwm-update-title-hook 'exwm-rename-buffer)
 
-  (defun async-shell-hidden-buffer (command)
-	"Run async shell command without a window for the buffer."
-	(interactive (list
-				  (read-shell-command "Async shell command: ")))
-	(let ((display-buffer-alist
-		   '(("\\*Async Shell Command\\*"
-			  (display-buffer-no-window)))))
-	  (async-shell-command command)))
-  (global-set-key (kbd "M-&") #'async-shell-hidden-buffer))
+  ;; (defun async-shell-hidden-buffer (command)
+  ;; 	"Run async shell command without a window for the buffer."
+  ;; 	(interactive (list
+  ;; 				  (read-shell-command "Async shell command: ")))
+  ;; 	(let ((display-buffer-alist
+  ;; 		   '(("\\*Async Shell Command\\*"
+  ;; 			  (display-buffer-no-window)))))
+  ;; 	  (async-shell-command command)))
+  ;; (global-set-key (kbd "M-&") #'async-shell-hidden-buffer))
+  (exwm-wm-mode))
 
 (use-package openwith
   :config
