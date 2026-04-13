@@ -33,7 +33,9 @@
 
   ;; backups
   (setq backup-directory-alist 
-		'(("." . ,(expand-file-name ".backup" user-emacs-directory))))
+		`((".*" . ,(expand-file-name ".backup" user-emacs-directory))))
+  (setq auto-save-file-name-transforms
+		`((".*" ,(expand-file-name ".autosave" user-emacs-directory) t)))
 
   ;; theme
   (add-to-list 'custom-theme-load-path 
