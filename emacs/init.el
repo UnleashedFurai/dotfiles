@@ -32,7 +32,7 @@
   (setq load-prefer-newer t)
 
   ;; don't wrap lines
-  (setq-default toggle-truncate-lines)
+  (setq-default truncate-lines t)
 
   ;; backups
   (setq backup-directory-alist 
