@@ -31,6 +31,9 @@
 
   (setq load-prefer-newer t)
 
+  ;; don't wrap lines
+  (setq-default toggle-truncate-lines)
+
   ;; backups
   (setq backup-directory-alist 
 		`((".*" . ,(expand-file-name ".backup" user-emacs-directory))))
