@@ -42,6 +42,12 @@
 			   (expand-file-name "themes" user-emacs-directory))
   (load-theme 'quiet t))
 
+(use-package dired
+  :ensure nil
+  :defer t
+  :config
+  (setq dired-listing-switches "-al --group-directories-first"))
+
 (use-package hl-line
   :ensure nil
   :defer t
