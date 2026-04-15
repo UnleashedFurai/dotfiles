@@ -10,6 +10,11 @@
 (require 'use-package)
 (setq use-package-always-ensure t)
 
+;; minor modes
+(define-minor-mode write-mode
+  "Minor mode for writing."
+  :lighter " Write")
+
 ;;  built-in behavior
 (use-package emacs
   :init
@@ -55,9 +60,7 @@
   :ensure nil
   :defer t
   :hook ((prog-mode . hl-line-mode)
-		 (org-mode . hl-line-mode)
-		 (markdown-mode . hl-line-mode)
-		 (latex-mode . hl-line-mode)))
+		 (write-mode . hl-line-mode)))
 
 (use-package display-line-numbers
   :ensure nil
@@ -65,9 +68,12 @@
   :config
   (setq display-line-numbers-type 'relative)
   :hook ((prog-mode . display-line-numbers-mode)
-		 (org-mode . display-line-numbers-mode)
-		 (markdown-mode . display-line-numbers-mode)
-		 (latex-mode . display-line-numbers-mode)))
+		 (write-mode . display-line-numbers-mode)))
+
+(use-package auto-fill
+  :ensure nil
+  :defer t
+  :hook (write-mode . auto-fill-mode))
 
 (use-package display-fill-column-indicator
   :ensure nil
@@ -75,9 +81,7 @@
   :config
   (setq-default fill-column 80)
   :hook ((prog-mode . display-fill-column-indicator-mode)
-		 (org-mode . display-fill-column-indicator-mode)
-		 (markdown-mode . display-fill-column-indicator-mode)
-		 (latex-mode . display-fill-column-indicator-mode)))
+		 (write-mode . display-fill-column-indicator-mode)))
 
 (use-package compile
   :ensure nil
@@ -122,7 +126,8 @@
 (use-package org
   :defer t
   :config
-  (setq org-export-backends '(ascii html latex md odt)))
+  (setq org-export-backends '(ascii html latex md odt))
+  :hook (org-mode . write-mode))
 
 ;; autoinsert templates
 (use-package autoinsert
@@ -154,7 +159,8 @@
 
 ;; markdown
 (use-package markdown-mode
-  :defer t)
+  :defer t
+  :hook (markdown-mode . write-mode))
 
 (use-package pandoc-mode
   :defer t
