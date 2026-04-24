@@ -39,6 +39,9 @@
   ;; don't wrap lines
   (setq-default truncate-lines t)
 
+  ;; delete to trash
+  (setq delete-by-moving-to-trash t)
+
   ;; backups
   (setq backup-directory-alist 
 		`((".*" . ,(expand-file-name ".backup" user-emacs-directory))))
@@ -54,7 +57,7 @@
   :ensure nil
   :defer t
   :config
-  (setq dired-listing-switches "-al --group-directories-first"))
+  (setq dired-listing-switches "-alh --group-directories-first"))
 
 (use-package hl-line
   :ensure nil
