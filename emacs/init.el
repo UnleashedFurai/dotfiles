@@ -100,6 +100,9 @@
   :config
   (evil-mode 1)
   (evil-set-undo-system 'undo-redo)
+  ;; restore emacs M-. behavior
+  (define-key evil-normal-state-map (kbd "M-.")
+			  #'xref-find-definitions)
   ;; noremap zz za
   (define-key evil-normal-state-map (kbd "z z")
 			  #'evil-toggle-fold)
