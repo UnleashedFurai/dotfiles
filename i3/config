@@ -20,6 +20,7 @@ set $file-manager kitty -- yazi
    bindsym $mod+Q exec $term
    bindsym $mod+W kill
    bindsym $mod+R exec $menu
+   bindsym $mod+space exec $menu
    bindsym $mod+D exec $browser
    bindsym $mod+E exec $file-manager
 
@@ -190,3 +191,7 @@ client.focused #e3ceefff #ffffffff #000000ff
 
 
 include ~/.config/i3/workspaces
+
+### Startup
+
+exec emacsclient -a "" -c

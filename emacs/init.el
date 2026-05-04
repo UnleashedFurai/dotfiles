@@ -213,50 +213,50 @@
 	  (vterm shell)))
   (define-key ctl-x-4-map (kbd "t") 'term-other-window))
 
-(use-package exwm
-  :config
-  ;; (setq exwm-workspace-number 4)
-  (setq exwm-input-global-keys
-		(append exwm-input-global-keys
-   				`(
-   				  (,(kbd "s-h") . windmove-left)
-   				  (,(kbd "s-j") . windmove-down)
-   				  (,(kbd "s-k") . windmove-up)
-   				  (,(kbd "s-l") . windmove-right)
-   				  (,(kbd "s-b") . switch-to-buffer)
-				  (,(kbd "s-SPC") . (lambda (cmd)
-									(interactive (list
-												  (read-shell-command "$ ")))
-									(start-process-shell-command cmd nil cmd)))
-				  (,(kbd "s-<escape>") . exwm-reset))))
-  (dotimes (i 10)
-	(exwm-input-set-key (kbd (format "s-%d" (if (= i 9) 0 (1+ i))))
-						`(lambda ()
-						   (interactive)
-						   (exwm-workspace-switch-create ,i))))
-  ;; default x applications to char-mode
-  ;; (setq exwm-manage-configurations '((t char-mode t)))
-  
-  ;; update buffer titles of x windows
-  (defun exwm-rename-buffer ()
-	(interactive)
-	(exwm-workspace-rename-buffer
-	 (concat exwm-class-name ":"
-			 (if (<= (length exwm-title) 50) exwm-title
-               (concat (substring exwm-title 0 49) "...")))))
-  (add-hook 'exwm-update-class-hook 'exwm-rename-buffer)
-  (add-hook 'exwm-update-title-hook 'exwm-rename-buffer)
-
-  ;; (defun async-shell-hidden-buffer (command)
-  ;; 	"Run async shell command without a window for the buffer."
-  ;; 	(interactive (list
-  ;; 				  (read-shell-command "Async shell command: ")))
-  ;; 	(let ((display-buffer-alist
-  ;; 		   '(("\\*Async Shell Command\\*"
-  ;; 			  (display-buffer-no-window)))))
-  ;; 	  (async-shell-command command)))
-  ;; (global-set-key (kbd "M-&") #'async-shell-hidden-buffer))
-  (exwm-wm-mode))
+;; (use-package exwm
+;;   :config
+;;   ;; (setq exwm-workspace-number 4)
+;;   (setq exwm-input-global-keys
+;; 		(append exwm-input-global-keys
+;;    				`(
+;;    				  (,(kbd "s-h") . windmove-left)
+;;    				  (,(kbd "s-j") . windmove-down)
+;;    				  (,(kbd "s-k") . windmove-up)
+;;    				  (,(kbd "s-l") . windmove-right)
+;;    				  (,(kbd "s-b") . switch-to-buffer)
+;; 				  (,(kbd "s-SPC") . (lambda (cmd)
+;; 									(interactive (list
+;; 												  (read-shell-command "$ ")))
+;; 									(start-process-shell-command cmd nil cmd)))
+;; 				  (,(kbd "s-<escape>") . exwm-reset))))
+;;   (dotimes (i 10)
+;; 	(exwm-input-set-key (kbd (format "s-%d" (if (= i 9) 0 (1+ i))))
+;; 						`(lambda ()
+;; 						   (interactive)
+;; 						   (exwm-workspace-switch-create ,i))))
+;;   ;; default x applications to char-mode
+;;   ;; (setq exwm-manage-configurations '((t char-mode t)))
+;;   
+;;   ;; update buffer titles of x windows
+;;   (defun exwm-rename-buffer ()
+;; 	(interactive)
+;; 	(exwm-workspace-rename-buffer
+;; 	 (concat exwm-class-name ":"
+;; 			 (if (<= (length exwm-title) 50) exwm-title
+;;                (concat (substring exwm-title 0 49) "...")))))
+;;   (add-hook 'exwm-update-class-hook 'exwm-rename-buffer)
+;;   (add-hook 'exwm-update-title-hook 'exwm-rename-buffer)
+;; 
+;;   ;; (defun async-shell-hidden-buffer (command)
+;;   ;; 	"Run async shell command without a window for the buffer."
+;;   ;; 	(interactive (list
+;;   ;; 				  (read-shell-command "Async shell command: ")))
+;;   ;; 	(let ((display-buffer-alist
+;;   ;; 		   '(("\\*Async Shell Command\\*"
+;;   ;; 			  (display-buffer-no-window)))))
+;;   ;; 	  (async-shell-command command)))
+;;   ;; (global-set-key (kbd "M-&") #'async-shell-hidden-buffer))
+;;   (exwm-wm-mode))
 
 (use-package openwith
   :config
@@ -279,8 +279,9 @@
 				'("mp3" "opus" "flac" "wav" "aac"))
 			   "mpv"
 			   '(file))
-		 (list (openwith-make-extension-regexp
-				'("jpg" "jpeg" "jxl" "png" "webp" "gif" "avif"))
-			   "mpv"
-			   '(file))))
+		 ;; (list (openwith-make-extension-regexp
+		 ;; 		'("jpg" "jpeg" "jxl" "png" "webp" "gif" "avif"))
+		 ;; 	   "mpv"
+		 ;;	   '(file)))
+		 ))
   (openwith-mode 1))

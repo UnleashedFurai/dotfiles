@@ -35,4 +35,4 @@ xidlehook --not-when-audio \
 
 keepassxc &
 polybar &
-exec emacsclient -a "" -c
+i3
