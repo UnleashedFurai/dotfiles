@@ -191,7 +191,3 @@ client.focused #e3ceefff #ffffffff #000000ff
 
 
 include ~/.config/i3/workspaces
-
-### Startup
-
-exec emacsclient -a "" -c
