@@ -13,7 +13,19 @@
 ;; minor modes
 (define-minor-mode write-mode
   "Minor mode for writing."
-  :lighter " Write")
+  :lighter " Write"
+  (if write-mode
+	  (progn
+		(auto-fill-mode 1)
+		(display-fill-column-indicator-mode 1)
+		(display-line-numbers-mode 1)
+		(hl-line-mode 1)
+		(olivetti-mode 1))
+	(auto-fill-mode -1)
+	(display-fill-column-indicator-mode -1)
+	(display-line-numbers-mode -1)
+	(hl-line-mode -1)
+	(olivetti-mode -1)))
 
 ;;  built-in behavior
 (use-package emacs
@@ -53,38 +65,36 @@
 			   (expand-file-name "themes" user-emacs-directory))
   (load-theme 'quiet t))
 
+(use-package server
+  :ensure nil
+  :defer t
+  :config (server-start))
+
 (use-package dired
   :ensure nil
   :defer t
-  :config
-  (setq dired-listing-switches "-alh --group-directories-first"))
+  :config (setq dired-listing-switches "-alh --group-directories-first"))
 
 (use-package hl-line
   :ensure nil
   :defer t
-  :hook ((prog-mode . hl-line-mode)
-		 (write-mode . hl-line-mode)))
+  :hook ((prog-mode . hl-line-mode)))
 
 (use-package display-line-numbers
   :ensure nil
   :defer t
-  :config
-  (setq display-line-numbers-type 'relative)
-  :hook ((prog-mode . display-line-numbers-mode)
-		 (write-mode . display-line-numbers-mode)))
+  :config (setq display-line-numbers-type 'relative)
+  :hook ((prog-mode . display-line-numbers-mode)))
 
 (use-package auto-fill
   :ensure nil
-  :defer t
-  :hook (write-mode . auto-fill-mode))
+  :defer t)
 
 (use-package display-fill-column-indicator
   :ensure nil
   :defer t
-  :config
-  (setq-default fill-column 80)
-  :hook ((prog-mode . display-fill-column-indicator-mode)
-		 (write-mode . display-fill-column-indicator-mode)))
+  :config (setq-default fill-column 80)
+  :hook ((prog-mode . display-fill-column-indicator-mode)))
 
 (use-package compile
   :ensure nil
@@ -131,8 +141,7 @@
 ;; org-mode
 (use-package org
   :defer t
-  :config
-  (setq org-export-backends '(ascii html latex md odt))
+  :config (setq org-export-backends '(ascii html latex md odt))
   :hook (org-mode . write-mode))
 
 ;; autoinsert templates
@@ -175,10 +184,7 @@
 
 (use-package olivetti
   :defer t
-  :config
-  (olivetti-set-width 86)
-  :hook ((markdown-mode . olivetti-mode)
-         (text-mode . olivetti-mode)))
+  :config (olivetti-set-width (+ fill-column 4)))
 
 ;; basic text editing
 (use-package flyspell
@@ -189,8 +195,7 @@
 ;; c-type langs indent specification
 (use-package cc-mode
   :defer t
-  :config
-  (setq-default c-basic-offset 4))
+  :config (setq-default c-basic-offset 4))
 
 (use-package vterm
   :config
