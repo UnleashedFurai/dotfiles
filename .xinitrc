@@ -6,9 +6,6 @@ numlockx &
 dunst &
 unclutter --timeout 5 &
 
-# essentially just using for vsync
-picom &
-
 lock="loginctl lock-session | env \
 XSECURELOCK_PASSWORD_PROMPT=time_hex \
 XSECURELOCK_BLANK_TIMEOUT=10 \
