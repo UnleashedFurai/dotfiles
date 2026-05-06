@@ -65,10 +65,10 @@
 			   (expand-file-name "themes" user-emacs-directory))
   (load-theme 'quiet t))
 
-(use-package server
-  :ensure nil
-  :defer t
-  :config (server-start))
+;; (use-package server
+;;   :ensure nil
+;;   :defer t
+;;   :config (server-start))
 
 (use-package dired
   :ensure nil
