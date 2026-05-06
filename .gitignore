@@ -15,9 +15,6 @@
 !mpv/
 !mpv/**
 
-!picom/
-!picom/**
-
 !polybar/
 !polybar/**
 
@@ -29,9 +26,6 @@
 
 !vim/
 !vim/**
-
-!warpd/
-!warpd/**
 
 !yazi/
 !yazi/**
