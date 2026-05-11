@@ -99,8 +99,7 @@
 (use-package compile
   :ensure nil
   :defer t
-  :config
-  (setq compile-command ""))
+  :config (setq compile-command ""))
 
 (use-package evil
   :init
@@ -108,7 +107,6 @@
         evil-want-keybinding nil
         evil-want-C-u-scroll t)
   :config
-  (evil-mode 1)
   (evil-set-undo-system 'undo-redo)
   ;; restore emacs M-. behavior
   (define-key evil-normal-state-map (kbd "M-.")
@@ -118,12 +116,12 @@
 			  #'evil-toggle-fold)
   ;; noremap z. zz
   (define-key evil-normal-state-map (kbd "z .")
-			  #'evil-scroll-line-to-center))
+			  #'evil-scroll-line-to-center)
+  :init (evil-mode 1))
 
 (use-package evil-collection
   :after evil
-  :config
-  (evil-collection-init))
+  :config (evil-collection-init))
 
 ;; hs-minor-mode for folding
 (use-package hideshow
@@ -135,8 +133,7 @@
   :bind (("M-x" . smex)
          ("M-X" . smex-major-mode-commands)
          ("C-c C-c M-x" . execute-extended-command))
-  :config
-  (smex-initialize))
+  :init (smex-initialize))
 
 ;; org-mode
 (use-package org
@@ -184,7 +181,9 @@
 
 (use-package olivetti
   :defer t
-  :config (olivetti-set-width (+ fill-column 4)))
+  :config
+  (remove-hook 'olivetti-mode-on-hook 'visual-line-mode)
+  (olivetti-set-width (+ fill-column 4)))
 
 ;; basic text editing
 (use-package flyspell
@@ -197,21 +196,13 @@
   :defer t
   :config (setq-default c-basic-offset 4))
 
-(use-package vterm
-  :config
-  (defun term-other-window ()
-	"Open term in the other window."
-	(interactive)
-	(let ((shell (getenv "SHELL"))
-		  other)
-	  (setq other (if (= 1 (length (window-list)))
-					  (if (> (window-width) (* 2 (window-height)))
-						  (split-window-right)
-						(split-window-below))
-					(next-window)))
-	  (select-window other)
-	  (vterm shell)))
-  (define-key ctl-x-4-map (kbd "t") 'term-other-window))
+;; (use-package vterm
+;;   :defer nil
+;;   :bind (("C-x 4 t" . vterm-other-window)))
+
+(use-package eat
+  :defer nil
+  :bind (("C-x 4 t" . eat-other-window)))
 
 ;; (use-package exwm
 ;;   :config
