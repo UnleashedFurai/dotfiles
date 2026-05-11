@@ -11,6 +11,7 @@ set $term kitty
 set $menu rofi -show drun
 set $browser librewolf
 set $file-manager kitty -- yazi
+set $editor emacsclient -a "" -c
 
 
 ### Key bindings
@@ -20,7 +21,7 @@ set $file-manager kitty -- yazi
    bindsym $mod+Q exec $term
    bindsym $mod+W kill
    bindsym $mod+R exec $menu
-   bindsym $mod+space exec $menu
+   bindsym $mod+space exec $editor
    bindsym $mod+D exec $browser
    bindsym $mod+E exec $file-manager
 
