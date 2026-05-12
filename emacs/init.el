@@ -78,13 +78,13 @@
 (use-package hl-line
   :ensure nil
   :defer t
-  :hook ((prog-mode . hl-line-mode)))
+  :hook (prog-mode . hl-line-mode))
 
 (use-package display-line-numbers
   :ensure nil
   :defer t
   :config (setq display-line-numbers-type 'relative)
-  :hook ((prog-mode . display-line-numbers-mode)))
+  :hook (prog-mode . display-line-numbers-mode))
 
 (use-package auto-fill
   :ensure nil
@@ -94,12 +94,21 @@
   :ensure nil
   :defer t
   :config (setq-default fill-column 80)
-  :hook ((prog-mode . display-fill-column-indicator-mode)))
+  :hook (prog-mode . display-fill-column-indicator-mode))
 
 (use-package compile
   :ensure nil
   :defer t
-  :config (setq compile-command ""))
+  :init (setq compile-command ""))
+
+(use-package eglot
+  :ensure nil
+  :init (setq eglot-ignored-server-capabilities
+			  '(:documentFormattingProvider
+				:documentRangeFormattingProvider
+				:documentOnTypeFormattingProvider
+				:inlayHintProvider))
+  :hook (prog-mode . eglot-ensure))
 
 (use-package evil
   :init
