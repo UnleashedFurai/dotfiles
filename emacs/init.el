@@ -13,7 +13,19 @@
 ;; minor modes
 (define-minor-mode write-mode
   "Minor mode for writing."
-  :lighter " Write")
+  :lighter " Write"
+  (if write-mode
+	  (progn
+		(auto-fill-mode 1)
+		(display-fill-column-indicator-mode 1)
+		(display-line-numbers-mode 1)
+		(hl-line-mode 1)
+		(olivetti-mode 1))
+	(auto-fill-mode -1)
+	(display-fill-column-indicator-mode -1)
+	(display-line-numbers-mode -1)
+	(hl-line-mode -1)
+	(olivetti-mode -1)))
 
 ;;  built-in behavior
 (use-package emacs
@@ -53,38 +65,36 @@
 			   (expand-file-name "themes" user-emacs-directory))
   (load-theme 'quiet t))
 
+;; (use-package server
+;;   :ensure nil
+;;   :defer t
+;;   :config (server-start))
+
 (use-package dired
   :ensure nil
   :defer t
-  :config
-  (setq dired-listing-switches "-alh --group-directories-first"))
+  :config (setq dired-listing-switches "-alh --group-directories-first"))
 
 (use-package hl-line
   :ensure nil
   :defer t
-  :hook ((prog-mode . hl-line-mode)
-		 (write-mode . hl-line-mode)))
+  :hook ((prog-mode . hl-line-mode)))
 
 (use-package display-line-numbers
   :ensure nil
   :defer t
-  :config
-  (setq display-line-numbers-type 'relative)
-  :hook ((prog-mode . display-line-numbers-mode)
-		 (write-mode . display-line-numbers-mode)))
+  :config (setq display-line-numbers-type 'relative)
+  :hook ((prog-mode . display-line-numbers-mode)))
 
 (use-package auto-fill
   :ensure nil
-  :defer t
-  :hook (write-mode . auto-fill-mode))
+  :defer t)
 
 (use-package display-fill-column-indicator
   :ensure nil
   :defer t
-  :config
-  (setq-default fill-column 80)
-  :hook ((prog-mode . display-fill-column-indicator-mode)
-		 (write-mode . display-fill-column-indicator-mode)))
+  :config (setq-default fill-column 80)
+  :hook ((prog-mode . display-fill-column-indicator-mode)))
 
 (use-package compile
   :ensure nil
@@ -100,6 +110,9 @@
   :config
   (evil-mode 1)
   (evil-set-undo-system 'undo-redo)
+  ;; restore emacs M-. behavior
+  (define-key evil-normal-state-map (kbd "M-.")
+			  #'xref-find-definitions)
   ;; noremap zz za
   (define-key evil-normal-state-map (kbd "z z")
 			  #'evil-toggle-fold)
@@ -128,8 +141,7 @@
 ;; org-mode
 (use-package org
   :defer t
-  :config
-  (setq org-export-backends '(ascii html latex md odt))
+  :config (setq org-export-backends '(ascii html latex md odt))
   :hook (org-mode . write-mode))
 
 ;; autoinsert templates
@@ -172,10 +184,7 @@
 
 (use-package olivetti
   :defer t
-  :config
-  (olivetti-set-width 86)
-  :hook ((markdown-mode . olivetti-mode)
-         (text-mode . olivetti-mode)))
+  :config (olivetti-set-width (+ fill-column 4)))
 
 ;; basic text editing
 (use-package flyspell
@@ -186,8 +195,7 @@
 ;; c-type langs indent specification
 (use-package cc-mode
   :defer t
-  :config
-  (setq-default c-basic-offset 4))
+  :config (setq-default c-basic-offset 4))
 
 (use-package vterm
   :config
@@ -204,3 +212,76 @@
 	  (select-window other)
 	  (vterm shell)))
   (define-key ctl-x-4-map (kbd "t") 'term-other-window))
+
+;; (use-package exwm
+;;   :config
+;;   ;; (setq exwm-workspace-number 4)
+;;   (setq exwm-input-global-keys
+;; 		(append exwm-input-global-keys
+;;    				`(
+;;    				  (,(kbd "s-h") . windmove-left)
+;;    				  (,(kbd "s-j") . windmove-down)
+;;    				  (,(kbd "s-k") . windmove-up)
+;;    				  (,(kbd "s-l") . windmove-right)
+;;    				  (,(kbd "s-b") . switch-to-buffer)
+;; 				  (,(kbd "s-SPC") . (lambda (cmd)
+;; 									(interactive (list
+;; 												  (read-shell-command "$ ")))
+;; 									(start-process-shell-command cmd nil cmd)))
+;; 				  (,(kbd "s-<escape>") . exwm-reset))))
+;;   (dotimes (i 10)
+;; 	(exwm-input-set-key (kbd (format "s-%d" (if (= i 9) 0 (1+ i))))
+;; 						`(lambda ()
+;; 						   (interactive)
+;; 						   (exwm-workspace-switch-create ,i))))
+;;   ;; default x applications to char-mode
+;;   ;; (setq exwm-manage-configurations '((t char-mode t)))
+;;   
+;;   ;; update buffer titles of x windows
+;;   (defun exwm-rename-buffer ()
+;; 	(interactive)
+;; 	(exwm-workspace-rename-buffer
+;; 	 (concat exwm-class-name ":"
+;; 			 (if (<= (length exwm-title) 50) exwm-title
+;;                (concat (substring exwm-title 0 49) "...")))))
+;;   (add-hook 'exwm-update-class-hook 'exwm-rename-buffer)
+;;   (add-hook 'exwm-update-title-hook 'exwm-rename-buffer)
+;; 
+;;   ;; (defun async-shell-hidden-buffer (command)
+;;   ;; 	"Run async shell command without a window for the buffer."
+;;   ;; 	(interactive (list
+;;   ;; 				  (read-shell-command "Async shell command: ")))
+;;   ;; 	(let ((display-buffer-alist
+;;   ;; 		   '(("\\*Async Shell Command\\*"
+;;   ;; 			  (display-buffer-no-window)))))
+;;   ;; 	  (async-shell-command command)))
+;;   ;; (global-set-key (kbd "M-&") #'async-shell-hidden-buffer))
+;;   (exwm-wm-mode))
+
+(use-package openwith
+  :config
+  ;; throws some win32 compile error
+  (setq native-comp-async-report-warnings-errors nil)
+  (setq openwith-associations
+		(list
+		 (list (openwith-make-extension-regexp
+				'("pdf"
+				  "docx" "xlsx" "pptx"
+				  "doc" "xls" "ppt"
+				  "odt" "ods" "odp"))
+			   "zaread"
+			   '(file))
+		 (list (openwith-make-extension-regexp
+				'("mkv" "mp4" "avi"))
+			   "mpv"
+			   '(file))
+		 (list (openwith-make-extension-regexp
+				'("mp3" "opus" "flac" "wav" "aac"))
+			   "mpv"
+			   '(file))
+		 ;; (list (openwith-make-extension-regexp
+		 ;; 		'("jpg" "jpeg" "jxl" "png" "webp" "gif" "avif"))
+		 ;; 	   "mpv"
+		 ;;	   '(file)))
+		 ))
+  (openwith-mode 1))

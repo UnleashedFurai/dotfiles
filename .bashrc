@@ -1,7 +1,3 @@
-#
-# ~/.bashrc
-#
-
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 # otherwise start tmux
@@ -10,6 +6,7 @@
 alias rm=trash
 alias s=sudo
 alias sedit=sudoedit
+alias e=$EDITOR
 
 export PATH=$PATH:~/.local/bin
 
