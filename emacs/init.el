@@ -211,7 +211,8 @@
 
 (use-package eat
   :defer nil
-  :bind (("C-x 4 t" . eat-other-window)))
+  :bind (("C-x t t" . eat)
+		 ("C-x 4 t" . eat-other-window)))
 
 ;; (use-package exwm
 ;;   :config
