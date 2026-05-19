@@ -70,6 +70,16 @@
 ;;   :defer t
 ;;   :config (server-start))
 
+(use-package window
+  :ensure nil
+  :defer nil
+  :bind ("C-x 4 1" . delete-other-windows-other-window)
+  :config
+  (defun delete-other-windows-other-window()
+	(interactive)
+	(other-window 1)
+	(delete-other-windows)))
+
 (use-package dired
   :ensure nil
   :defer t
