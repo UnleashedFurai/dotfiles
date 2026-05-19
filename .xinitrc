@@ -1,3 +1,9 @@
+export GTK_IM_MODULE='ibus'
+export QT_IM_MODULE='ibus'
+export GLFW_IM_MODULE='ibus'
+export XMODIFIERS='@IM=ibus'
+fcitx5 &
+
 numlockx &
 
 # points to ~/.config/assets/wallpaper.png
