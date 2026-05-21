@@ -3,6 +3,11 @@
 # otherwise start tmux
 # [[ -z "$TMUX" ]] && exec tmux
 
+if [[ -z "$TMUX" ]] && [[ -n "$SSH_TTY" ]] && [[ ! "$TERM" == "dumb" ]] ; then
+	tmux a -t ssh || tmux new-session -s ssh
+	exit
+fi
+
 alias rm=trash
 alias s=sudo
 alias sedit=sudoedit
