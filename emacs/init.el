@@ -213,7 +213,9 @@
 ;; c-type langs indent specification
 (use-package cc-mode
   :defer t
-  :config (setq-default c-basic-offset 4))
+  :config 
+  (setq c-default-style  
+		'((java-mode . "java") (awk-mode . "awk") (other . "stroustrup"))))
 
 ;; (use-package vterm
 ;;   :defer nil
