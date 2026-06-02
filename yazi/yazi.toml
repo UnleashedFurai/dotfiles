@@ -5,6 +5,7 @@ prepend_preloaders = [
     { mime = "application/oasis.opendocument.*", run = "office" },
     { mime = "application/ms-*", run = "office" },
     { mime = "application/msword", run = "office" },
+	{ url = "*.docx", run = "office" },
     # mediainfo.yazi
     # to add more filetypes supported by mediainfo, just add the mime types
     { mime = "{audio,video,image}/*", run = "mediainfo" },
@@ -17,6 +18,7 @@ prepend_previewers = [
     { mime = "application/oasis.opendocument.*", run = "office" },
     { mime = "application/ms-*", run = "office" },
     { mime = "application/msword", run = "office" },
+	{ url = "*.docx", run = "office" },
     # mediainfo.yazi
     # to add more filetypes supported by mediainfo, just add the mime types
     { mime = "{audio,video,image}/*", run = "mediainfo"},
