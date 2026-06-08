@@ -17,13 +17,13 @@
   (if write-mode
 	  (progn
 		(auto-fill-mode 1)
-		(display-fill-column-indicator-mode 1)
-		(display-line-numbers-mode 1)
+		;; (display-fill-column-indicator-mode 1)
+		;; (display-line-numbers-mode 1)
 		(hl-line-mode 1)
 		(olivetti-mode 1))
 	(auto-fill-mode -1)
-	(display-fill-column-indicator-mode -1)
-	(display-line-numbers-mode -1)
+	;; (display-fill-column-indicator-mode -1)
+	;; (display-line-numbers-mode -1)
 	(hl-line-mode -1)
 	(olivetti-mode -1)))
 
@@ -73,8 +73,13 @@
 (use-package window
   :ensure nil
   :defer nil
-  :bind ("C-x 4 1" . delete-other-windows-other-window)
+  :bind
+  (("C-x 4 k" . kill-buffer-other-window)
+   ("C-x 4 1" . delete-other-windows-other-window))
   :config
+  (defun kill-buffer-other-window()
+	(interactive)
+	(kill-buffer (window-buffer (next-window))))
   (defun delete-other-windows-other-window()
 	(interactive)
 	(other-window 1)
