@@ -11,7 +11,7 @@ set $term kitty
 set $menu rofi -show drun
 set $browser librewolf
 set $file-manager kitty -- yazi
-set $editor emacsclient -a "" -c
+set $editor emacsclient -a "" -n -c
 
 
 ### Key bindings
