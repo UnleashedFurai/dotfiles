@@ -34,6 +34,11 @@ xidlehook --not-when-audio \
     --timer 600 "$suspend" '' \
     --socket /tmp/idle.sock &
 
-keepassxc &
 polybar &
-i3
+
+~/.xsecrets
+
+i3 &
+
+# to exit X, just kill sleep
+sleep infinity
