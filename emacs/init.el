@@ -147,6 +147,12 @@
   :after evil
   :config (evil-collection-init))
 
+(use-package magit)
+
+(use-package ediff
+  :init
+  (setq ediff-window-setup-function #'ediff-setup-windows-plain))
+
 ;; hs-minor-mode for folding
 (use-package hideshow
   :ensure nil
