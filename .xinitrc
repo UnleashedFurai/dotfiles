@@ -2,7 +2,12 @@ export GTK_IM_MODULE='ibus'
 export QT_IM_MODULE='ibus'
 export GLFW_IM_MODULE='ibus'
 export XMODIFIERS='@IM=ibus'
-fcitx5 &
+
+xrandr --output DisplayPort-1 --mode 2560x1440 --rate 120 --pos 0x0 --primary --output DisplayPort-2 --mode 1920x1080 --rate 120 --pos 2560x250
+
+xset dpms 0 0 0
+xset s noblank
+xset s off
 
 numlockx &
 
@@ -11,6 +16,9 @@ numlockx &
 
 dunst &
 unclutter --timeout 5 &
+
+# essentially just using for vsync
+picom &
 
 lock="loginctl lock-session | env \
 XSECURELOCK_PASSWORD_PROMPT=time_hex \
@@ -25,19 +33,17 @@ XSECURELOCK_KEY_XF86AudioRaiseVolume_COMMAND='pactl set-sink-volume \@DEFAULT_SI
 XSECURELOCK_SAVER=saver_mpv \
 XSECURELOCK_LIST_VIDEOS_COMMAND='find ~/.config/assets/lockscreen.png' \
 XSECURELOCK_IMAGE_DURATION_SECONDS=3600 \
-XSECURELOCK_SAVER_DELAY_MS=3 \
-xsecurelock"
-suspend="loginctl suspend"
+XSECURELOCK_SAVER_DELAY_MS=2 xsecurelock"
 
 xidlehook --not-when-audio \
     --timer 300 "$lock" '' \
-    --timer 600 "$suspend" '' \
     --socket /tmp/idle.sock &
 
 polybar &
 
 ~/.xsecrets
 
+# declaring a window manager here allows me to hotswap to other window managers
 i3 &
 
 # to exit X, just kill sleep
