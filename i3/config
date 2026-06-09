@@ -109,7 +109,10 @@ set $file-manager kitty -- yazi
    bindsym $mod+F11 fullscreen
 
    # Toggle the current focus between tiling and floating mode
-   bindsym $mod+F floating toggle
+   bindsym $mod+F floating toggle; sticky disable
+
+   # toggle sticky
+   bindsym $mod+P sticky toggle
 
    # Move focus to the parent container
    bindsym $mod+A focus parent
