@@ -17,13 +17,13 @@
   (if write-mode
 	  (progn
 		(auto-fill-mode 1)
-		(display-fill-column-indicator-mode 1)
-		(display-line-numbers-mode 1)
+		;; (display-fill-column-indicator-mode 1)
+		;; (display-line-numbers-mode 1)
 		(hl-line-mode 1)
 		(olivetti-mode 1))
 	(auto-fill-mode -1)
-	(display-fill-column-indicator-mode -1)
-	(display-line-numbers-mode -1)
+	;; (display-fill-column-indicator-mode -1)
+	;; (display-line-numbers-mode -1)
 	(hl-line-mode -1)
 	(olivetti-mode -1)))
 
@@ -70,6 +70,21 @@
 ;;   :defer t
 ;;   :config (server-start))
 
+(use-package window
+  :ensure nil
+  :defer nil
+  :bind
+  (("C-x 4 k" . kill-buffer-other-window)
+   ("C-x 4 1" . delete-other-windows-other-window))
+  :config
+  (defun kill-buffer-other-window()
+	(interactive)
+	(kill-buffer (window-buffer (next-window))))
+  (defun delete-other-windows-other-window()
+	(interactive)
+	(other-window 1)
+	(delete-other-windows)))
+
 (use-package dired
   :ensure nil
   :defer t
@@ -78,13 +93,13 @@
 (use-package hl-line
   :ensure nil
   :defer t
-  :hook ((prog-mode . hl-line-mode)))
+  :hook (prog-mode . hl-line-mode))
 
 (use-package display-line-numbers
   :ensure nil
   :defer t
   :config (setq display-line-numbers-type 'relative)
-  :hook ((prog-mode . display-line-numbers-mode)))
+  :hook (prog-mode . display-line-numbers-mode))
 
 (use-package auto-fill
   :ensure nil
@@ -94,13 +109,21 @@
   :ensure nil
   :defer t
   :config (setq-default fill-column 80)
-  :hook ((prog-mode . display-fill-column-indicator-mode)))
+  :hook (prog-mode . display-fill-column-indicator-mode))
 
 (use-package compile
   :ensure nil
   :defer t
-  :config
-  (setq compile-command ""))
+  :init (setq compile-command ""))
+
+(use-package eglot
+  :ensure nil
+  :init (setq eglot-ignored-server-capabilities
+			  '(:documentFormattingProvider
+				:documentRangeFormattingProvider
+				:documentOnTypeFormattingProvider
+				:inlayHintProvider))
+  :hook (prog-mode . eglot-ensure))
 
 (use-package evil
   :init
@@ -108,7 +131,6 @@
         evil-want-keybinding nil
         evil-want-C-u-scroll t)
   :config
-  (evil-mode 1)
   (evil-set-undo-system 'undo-redo)
   ;; restore emacs M-. behavior
   (define-key evil-normal-state-map (kbd "M-.")
@@ -118,12 +140,12 @@
 			  #'evil-toggle-fold)
   ;; noremap z. zz
   (define-key evil-normal-state-map (kbd "z .")
-			  #'evil-scroll-line-to-center))
+			  #'evil-scroll-line-to-center)
+  :init (evil-mode 1))
 
 (use-package evil-collection
   :after evil
-  :config
-  (evil-collection-init))
+  :config (evil-collection-init))
 
 ;; hs-minor-mode for folding
 (use-package hideshow
@@ -135,8 +157,7 @@
   :bind (("M-x" . smex)
          ("M-X" . smex-major-mode-commands)
          ("C-c C-c M-x" . execute-extended-command))
-  :config
-  (smex-initialize))
+  :init (smex-initialize))
 
 ;; org-mode
 (use-package org
@@ -184,7 +205,9 @@
 
 (use-package olivetti
   :defer t
-  :config (olivetti-set-width (+ fill-column 4)))
+  :config
+  (remove-hook 'olivetti-mode-on-hook 'visual-line-mode)
+  (olivetti-set-width (+ fill-column 4)))
 
 ;; basic text editing
 (use-package flyspell
@@ -195,23 +218,18 @@
 ;; c-type langs indent specification
 (use-package cc-mode
   :defer t
-  :config (setq-default c-basic-offset 4))
+  :config 
+  (setq c-default-style  
+		'((java-mode . "java") (awk-mode . "awk") (other . "stroustrup"))))
 
-(use-package vterm
-  :config
-  (defun term-other-window ()
-	"Open term in the other window."
-	(interactive)
-	(let ((shell (getenv "SHELL"))
-		  other)
-	  (setq other (if (= 1 (length (window-list)))
-					  (if (> (window-width) (* 2 (window-height)))
-						  (split-window-right)
-						(split-window-below))
-					(next-window)))
-	  (select-window other)
-	  (vterm shell)))
-  (define-key ctl-x-4-map (kbd "t") 'term-other-window))
+;; (use-package vterm
+;;   :defer nil
+;;   :bind (("C-x 4 t" . vterm-other-window)))
+
+(use-package eat
+  :defer nil
+  :bind (("C-x t t" . eat)
+		 ("C-x 4 t" . eat-other-window)))
 
 ;; (use-package exwm
 ;;   :config
