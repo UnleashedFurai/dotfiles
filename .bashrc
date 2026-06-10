@@ -13,6 +13,8 @@ alias s=sudo
 alias sedit=sudoedit
 alias e=$EDITOR
 
+alias emacs='emacsclient -a "" -r -r'
+
 export PATH=$PATH:~/.local/bin
 
 #pyenv
