@@ -23,5 +23,10 @@ use = "unleashedfurai/bookmarks"
 rev = "b99c2f9"
 hash = "1eaeb7f84aa3e28295ea5814fb9ea45c"
 
+[[plugin.deps]]
+use = "unleashedfurai/dragon"
+rev = "2bd5542"
+hash = "2bc38d607b6f925820a3583db245bbb5"
+
 [flavor]
 deps = []
