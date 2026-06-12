@@ -13,7 +13,7 @@ alias s=sudo
 alias sedit=sudoedit
 alias e=$EDITOR
 
-alias emacs='emacsclient -a "" -r -r'
+alias emacs='emacsclient -a "" -n -r'
 
 export PATH=$PATH:~/.local/bin
 
