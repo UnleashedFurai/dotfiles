@@ -1,27 +1,27 @@
 [[plugin.deps]]
-use = "macydnah/office"
-rev = "41ebef8"
-hash = "5805affd3ae8adcb3c72b6997d21c0a6"
-
-[[plugin.deps]]
 use = "yazi-rs/plugins:jump-to-char"
 rev = "598cdb6"
 hash = "7a4b4237223aaa94e589d1c01a23542a"
 
 [[plugin.deps]]
-use = "dedukun/bookmarks"
-rev = "9ef1254"
-hash = "92fbb5483657fa7976cdf4e0104e18e0"
-
-[[plugin.deps]]
 use = "boydaihungst/mediainfo"
-rev = "4f80288"
-hash = "ae6421df5eb7571bd77ebdbf0a699e93"
+rev = "a6d30a1"
+hash = "f3970de915c038d09fecf8d93d156fba"
 
 [[plugin.deps]]
 use = "boydaihungst/compress"
 rev = "2621bd5"
 hash = "f50b733cede531d5217cc9b90d633d07"
+
+[[plugin.deps]]
+use = "unleashedfurai/office"
+rev = "40135f5"
+hash = "f0a696c45c7669836b3092050dee663"
+
+[[plugin.deps]]
+use = "unleashedfurai/bookmarks"
+rev = "b99c2f9"
+hash = "1eaeb7f84aa3e28295ea5814fb9ea45c"
 
 [flavor]
 deps = []
