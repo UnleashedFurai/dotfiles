@@ -25,8 +25,8 @@ hash = "1eaeb7f84aa3e28295ea5814fb9ea45c"
 
 [[plugin.deps]]
 use = "unleashedfurai/dragon"
-rev = "2bd5542"
-hash = "2bc38d607b6f925820a3583db245bbb5"
+rev = "f00f9ac"
+hash = "a67d27009a76d9bb031b14148d8dae1a"
 
 [flavor]
 deps = []
