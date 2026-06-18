@@ -111,6 +111,10 @@
   :config (setq-default fill-column 80)
   :hook (prog-mode . display-fill-column-indicator-mode))
 
+(use-package sendmail
+  :ensure nil
+  :init (add-to-list 'auto-mode-alist '("/tmp/mutt.*" . mail-mode)))
+
 (use-package compile
   :ensure nil
   :defer t
