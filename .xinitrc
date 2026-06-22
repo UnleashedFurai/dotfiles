@@ -4,8 +4,6 @@ export GLFW_IM_MODULE='ibus'
 export XMODIFIERS='@IM=ibus'
 fcitx5 &
 
-xrandr --output DisplayPort-1 --mode 2560x1440 --rate 120 --pos 0x0 --primary --output DisplayPort-2 --mode 1920x1080 --rate 120 --pos 2560x250
-
 xset dpms 0 0 0
 xset s noblank
 xset s off
