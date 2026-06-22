@@ -1,7 +1,7 @@
-export GTK_IM_MODULE='ibus'
-export QT_IM_MODULE='ibus'
-export GLFW_IM_MODULE='ibus'
-export XMODIFIERS='@IM=ibus'
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export GLFW_IM_MODULE=ibus
+export XMODIFIERS=@im=fcitx
 
 xrandr --output DisplayPort-1 --mode 2560x1440 --rate 120 --pos 0x0 --primary --output DisplayPort-2 --mode 1920x1080 --rate 120 --pos 2560x250
 
