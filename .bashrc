@@ -3,4 +3,4 @@ alias s=sudo
 alias sedit=sudoedit
 alias e=$EDITOR
 
-alias emacs='emacsclient -a "" -n -r'
+alias emacs='emacsclient -a "" -r'
