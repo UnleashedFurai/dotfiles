@@ -113,6 +113,9 @@ set $editor emacsclient -a "" -n -c
    # Toggle the current focus between tiling and floating mode
    bindsym $mod+F floating toggle; sticky disable
 
+   # toggle focus between floating/tiled
+   bindsym $mod+shift+F focus mode_toggle
+
    # toggle sticky
    bindsym $mod+P sticky toggle
 

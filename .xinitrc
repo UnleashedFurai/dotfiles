@@ -1,7 +1,7 @@
-export GTK_IM_MODULE='ibus'
-export QT_IM_MODULE='ibus'
-export GLFW_IM_MODULE='ibus'
-export XMODIFIERS='@IM=ibus'
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export GLFW_IM_MODULE=ibus
+export XMODIFIERS=@im=fcitx
 fcitx5 &
 
 xset dpms 0 0 0
