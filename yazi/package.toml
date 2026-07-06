@@ -1,6 +1,6 @@
 [[plugin.deps]]
 use = "yazi-rs/plugins:jump-to-char"
-rev = "39aaf6d"
+rev = "8cd50c6"
 hash = "7a4b4237223aaa94e589d1c01a23542a"
 
 [[plugin.deps]]
@@ -10,8 +10,8 @@ hash = "f3970de915c038d09fecf8d93d156fba"
 
 [[plugin.deps]]
 use = "boydaihungst/compress"
-rev = "2621bd5"
-hash = "f50b733cede531d5217cc9b90d633d07"
+rev = "0b46f6c"
+hash = "5fbcc0b08b372af7005a2ddac228c76a"
 
 [[plugin.deps]]
 use = "unleashedfurai/office"
