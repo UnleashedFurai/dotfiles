@@ -70,6 +70,11 @@
 ;;   :defer t
 ;;   :config (server-start))
 
+(use-package simple
+  :ensure nil
+  :defer nil
+  :bind ("C-x x t" . visual-line-mode))
+
 (use-package window
   :ensure nil
   :defer nil
@@ -129,6 +134,7 @@
   :init
   (setq evil-want-integration t
         evil-want-keybinding nil
+		evil-respect-visual-line-mode t
         evil-want-C-u-scroll t)
   :config
   (evil-set-undo-system 'undo-redo)
