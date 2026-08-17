@@ -1,5 +1,60 @@
 {
   Dock = {
+    Applications480 = (
+      {
+        Forced = No;
+        Name = Logo.WMDock;
+        BuggyApplication = No;
+        AutoLaunch = No;
+        Position = "0,0";
+        Lock = No;
+        Command = "-";
+      },
+      {
+        Forced = No;
+        Name = wmclock.WMClock;
+        DropCommand = "wmclock %d";
+        BuggyApplication = No;
+        AutoLaunch = Yes;
+        Position = "0,1";
+        Lock = No;
+        PasteCommand = "wmclock %s";
+        Command = wmclock;
+      },
+      {
+        Forced = No;
+        Name = wmusic.DockApp;
+        DropCommand = "wmusic %d";
+        BuggyApplication = No;
+        AutoLaunch = Yes;
+        Position = "0,3";
+        Lock = No;
+        PasteCommand = "wmusic %s";
+        Command = wmusic;
+      },
+      {
+        Forced = No;
+        Name = pulsemixer_app.PulseMixer_app;
+        DropCommand = "GNUstep/dockapps/PulseMixer.app/PulseMixer.app %d";
+        BuggyApplication = No;
+        AutoLaunch = Yes;
+        Position = "0,2";
+        Lock = No;
+        PasteCommand = "GNUstep/dockapps/PulseMixer.app/PulseMixer.app %s";
+        Command = "GNUstep/dockapps/PulseMixer.app/PulseMixer.app -e \"kitty -- pulsemixer\"";
+      },
+      {
+        Forced = No;
+        Name = wmsystemtray0.wmsystemtray;
+        DropCommand = "wmsystemtray %d";
+        BuggyApplication = No;
+        AutoLaunch = Yes;
+        Position = "0,4";
+        Lock = No;
+        PasteCommand = "wmsystemtray %s";
+        Command = wmsystemtray;
+      }
+    );
     AutoRaiseLower = No;
     Applications = (
       {
@@ -58,68 +113,13 @@
     );
     Lowered = Yes;
     Position = "0,0";
-    Applications1440 = (
-      {
-        Forced = No;
-        Name = Logo.WMDock;
-        BuggyApplication = No;
-        AutoLaunch = No;
-        Position = "0,0";
-        Lock = No;
-        Command = "-";
-      },
-      {
-        Forced = No;
-        Name = wmclock.WMClock;
-        DropCommand = "wmclock %d";
-        BuggyApplication = No;
-        AutoLaunch = Yes;
-        Position = "0,1";
-        Lock = No;
-        PasteCommand = "wmclock %s";
-        Command = wmclock;
-      },
-      {
-        Forced = No;
-        Name = wmusic.DockApp;
-        DropCommand = "wmusic %d";
-        BuggyApplication = No;
-        AutoLaunch = Yes;
-        Position = "0,3";
-        Lock = No;
-        PasteCommand = "wmusic %s";
-        Command = wmusic;
-      },
-      {
-        Forced = No;
-        Name = pulsemixer_app.PulseMixer_app;
-        DropCommand = "GNUstep/dockapps/PulseMixer.app/PulseMixer.app %d";
-        BuggyApplication = No;
-        AutoLaunch = Yes;
-        Position = "0,2";
-        Lock = No;
-        PasteCommand = "GNUstep/dockapps/PulseMixer.app/PulseMixer.app %s";
-        Command = "GNUstep/dockapps/PulseMixer.app/PulseMixer.app -e \"kitty -- pulsemixer\"";
-      },
-      {
-        Forced = No;
-        Name = wmsystemtray0.wmsystemtray;
-        DropCommand = "wmsystemtray %d";
-        BuggyApplication = No;
-        AutoLaunch = Yes;
-        Position = "0,4";
-        Lock = No;
-        PasteCommand = "wmsystemtray %s";
-        Command = wmsystemtray;
-      }
-    );
   };
   Clip = {
     Forced = No;
     Name = Logo.WMClip;
     BuggyApplication = No;
     AutoLaunch = No;
-    Position = "0,1376";
+    Position = "0,416";
     Lock = No;
     Command = "-";
   };
