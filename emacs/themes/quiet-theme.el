@@ -1,3 +1,5 @@
+;; -*- lexical-binding: t; -*-
+
 (deftheme quiet "Plain theme without syntax highlighting.")
 
 (defgroup quiet-theme nil
