@@ -1,12 +1,12 @@
 [[plugin.deps]]
 use = "yazi-rs/plugins:jump-to-char"
-rev = "3f2b882"
+rev = "4dc7f1b"
 hash = "7a4b4237223aaa94e589d1c01a23542a"
 
 [[plugin.deps]]
 use = "boydaihungst/mediainfo"
-rev = "e079a00"
-hash = "5e203acd4ff62c96cbc2887c8142d78"
+rev = "d2dd310"
+hash = "565d2abf5c125be930ac342099bffd4c"
 
 [[plugin.deps]]
 use = "boydaihungst/compress"
