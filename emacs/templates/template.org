@@ -1,4 +1,4 @@
-#+options: toc:nil num:nil
+#+options: toc:nil num:nil html-postamble:nil
 
 #+latex_compiler: lualatex
 #+latex_class: article
