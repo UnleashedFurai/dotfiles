@@ -53,6 +53,9 @@
   ;; don't wrap lines
   (setq-default truncate-lines t)
 
+  ;; show trailing spaces
+  (setq-default show-trailing-whitespace t)
+
   ;; delete to trash
   (setq delete-by-moving-to-trash t)
 
