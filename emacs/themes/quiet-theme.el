@@ -19,8 +19,12 @@
   "Color to use for comments."
   :type 'color)
 
-(defcustom quiet-highlight "dimgray"
+(defcustom quiet-highlight "dimgrey"
   "Color to use for highlight."
+  :type 'color)
+
+(defcustom quiet-whitespace "grey20"
+  "Color to use for trailing whitespace."
   :type 'color)
 
 (defcustom quiet-link "violet"
@@ -58,6 +62,8 @@
      ((t (:foreground ,quiet-comment))))
   `(hl-line
     ((t (:background ,quiet-highlight))))
+  `(trailing-whitespace
+	((t (:background ,quiet-whitespace))))
   `(link
     ((t (:foreground ,quiet-link))))
   `(link-visited
