@@ -1,17 +1,17 @@
 [[plugin.deps]]
 use = "yazi-rs/plugins:jump-to-char"
-rev = "8cd50c6"
+rev = "4dc7f1b"
 hash = "7a4b4237223aaa94e589d1c01a23542a"
 
 [[plugin.deps]]
 use = "boydaihungst/mediainfo"
-rev = "a6d30a1"
-hash = "f3970de915c038d09fecf8d93d156fba"
+rev = "d2dd310"
+hash = "565d2abf5c125be930ac342099bffd4c"
 
 [[plugin.deps]]
 use = "boydaihungst/compress"
-rev = "0b46f6c"
-hash = "5fbcc0b08b372af7005a2ddac228c76a"
+rev = "3c3e5aa"
+hash = "7363584b3dd5c501911881f305a8c9f3"
 
 [[plugin.deps]]
 use = "unleashedfurai/office"
