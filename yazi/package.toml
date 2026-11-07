@@ -1,6 +1,6 @@
 [[plugin.deps]]
 use = "yazi-rs/plugins:jump-to-char"
-rev = "896fa5a"
+rev = "c0529fc"
 hash = "7a4b4237223aaa94e589d1c01a23542a"
 
 [[plugin.deps]]
