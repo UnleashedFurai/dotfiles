@@ -1,6 +1,5 @@
 ;; -*- lexical-binding: t; -*-
 
-;; packaging
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 (package-initialize)
@@ -12,7 +11,6 @@
 (require 'use-package)
 (setq use-package-always-ensure t)
 
-;; minor modes
 (define-minor-mode write-mode
   "Minor mode for writing."
   :lighter " Write"
@@ -60,20 +58,15 @@
   (setq delete-by-moving-to-trash t)
 
   ;; backups
-  (setq backup-directory-alist 
+  (setq backup-directory-alist
 		`((".*" . ,(expand-file-name ".backup/" user-emacs-directory))))
   (setq auto-save-file-name-transforms
 		`((".*" ,(expand-file-name ".autosave/" user-emacs-directory) t)))
 
   ;; theme
-  (add-to-list 'custom-theme-load-path 
+  (add-to-list 'custom-theme-load-path
 			   (expand-file-name "themes" user-emacs-directory))
   (load-theme 'quiet t))
-
-;; (use-package server
-;;   :ensure nil
-;;   :defer t
-;;   :config (server-start))
 
 (use-package simple
   :ensure nil
@@ -141,6 +134,7 @@
         evil-want-keybinding nil
 		evil-respect-visual-line-mode t
         evil-want-C-u-scroll t)
+  (evil-mode 1)
   :config
   (evil-set-undo-system 'undo-redo)
   ;; restore emacs M-. behavior
@@ -151,8 +145,7 @@
 			  #'evil-toggle-fold)
   ;; noremap z. zz
   (define-key evil-normal-state-map (kbd "z .")
-			  #'evil-scroll-line-to-center)
-  :init (evil-mode 1))
+			  #'evil-scroll-line-to-center))
 
 (use-package evil-collection
   :after evil
@@ -164,7 +157,6 @@
   :init
   (setq ediff-window-setup-function #'ediff-setup-windows-plain))
 
-;; hs-minor-mode for folding
 (use-package hideshow
   :ensure nil
   :after evil
@@ -176,19 +168,17 @@
          ("C-c C-c M-x" . execute-extended-command))
   :init (smex-initialize))
 
-;; org-mode
 (use-package org
   :defer t
   :config (setq org-export-backends '(ascii html latex md odt))
   :hook (org-mode . write-mode))
 
-;; autoinsert templates
 (use-package autoinsert
   :init
   (auto-insert-mode 1)
   (setq auto-insert-query nil
         auto-insert-directory
-		(expand-file-name "templates" user-emacs-directory)) 
+		(expand-file-name "templates" user-emacs-directory))
   :config
   (defun template-placeholder-fill (template)
     (insert-file-contents
@@ -210,7 +200,6 @@
                          (template-placeholder-fill "template.org"))))
          auto-insert-alist)))
 
-;; markdown
 (use-package markdown-mode
   :defer t
   :hook (markdown-mode . write-mode))
@@ -226,22 +215,16 @@
   (remove-hook 'olivetti-mode-on-hook 'visual-line-mode)
   (olivetti-set-width (+ fill-column 4)))
 
-;; basic text editing
 (use-package flyspell
   :defer t
   :ensure nil
   :hook (text-mode . flyspell-mode))
 
-;; c-type langs indent specification
 (use-package cc-mode
   :defer t
-  :config 
-  (setq c-default-style  
+  :config
+  (setq c-default-style
 		'((java-mode . "java") (awk-mode . "awk") (other . "stroustrup"))))
-
-;; (use-package vterm
-;;   :defer nil
-;;   :bind (("C-x 4 t" . vterm-other-window)))
 
 (use-package eat
   :defer nil
@@ -271,7 +254,7 @@
 ;; 						   (exwm-workspace-switch-create ,i))))
 ;;   ;; default x applications to char-mode
 ;;   ;; (setq exwm-manage-configurations '((t char-mode t)))
-;;   
+;;
 ;;   ;; update buffer titles of x windows
 ;;   (defun exwm-rename-buffer ()
 ;; 	(interactive)
@@ -281,7 +264,7 @@
 ;;                (concat (substring exwm-title 0 49) "...")))))
 ;;   (add-hook 'exwm-update-class-hook 'exwm-rename-buffer)
 ;;   (add-hook 'exwm-update-title-hook 'exwm-rename-buffer)
-;; 
+;;
 ;;   ;; (defun async-shell-hidden-buffer (command)
 ;;   ;; 	"Run async shell command without a window for the buffer."
 ;;   ;; 	(interactive (list
