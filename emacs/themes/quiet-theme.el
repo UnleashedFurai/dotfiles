@@ -53,7 +53,6 @@
 
 (quiet--add quiet-faces)
 
-;; Comments should be grey
 (custom-theme-set-faces
   'quiet
   `(font-lock-comment-face
@@ -76,23 +75,21 @@
 
 (defcustom quiet-prefix-alist
   '((font-lock . "font-lock-")
-    (sh-script . "sh-")
-    (web-mode . "web-mode-"))
+    (sh-script . "sh-"))
   "Mapping from files to face prefixes: when file is first loaded,
 decolorizes every face that starts with the prefix."
   :type '(alist :key-type symbol :value-type string))
 
-(require 'cl-lib)
-
 (defun quiet--prefix (prefix)
   "Return all faces that start with PREFIX."
-  (cl-remove-if-not (lambda (s) (string-prefix-p prefix (symbol-name s)))
-		    (face-list)))
+  (let ((out nil))
+	(dolist (s (face-list) out)
+	  (when (string-prefix-p prefix (symbol-name s))
+		(push s out)))))
 
 (dolist (a quiet-prefix-alist)
   (eval-after-load (car a) `(quiet--add (quiet--prefix ,(cdr a)))))
 
-;;;###autoload
 (when load-file-name
   (add-to-list 'custom-theme-load-path
                (file-name-as-directory (file-name-directory load-file-name))))
