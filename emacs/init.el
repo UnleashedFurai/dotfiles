@@ -30,10 +30,6 @@
 ;;  built-in behavior
 (use-package emacs
   :init
-  ;; set window size
-  ;; (if (window-system)
-  ;;    (set-frame-size (selected-frame) 90 40))
-
   ;; disable splash screen / menu bars
   (setq inhibit-startup-screen t)
   (menu-bar-mode 0)
@@ -104,13 +100,9 @@
   :config (setq display-line-numbers-type 'relative)
   :hook (prog-mode . display-line-numbers-mode))
 
-(use-package auto-fill
-  :ensure nil
-  :defer t)
-
 (use-package display-fill-column-indicator
   :ensure nil
-  :defer t
+  :defer nil
   :config (setq-default fill-column 80)
   :hook (prog-mode . display-fill-column-indicator-mode))
 
@@ -128,30 +120,15 @@
 				:inlayHintProvider))
   :hook (prog-mode . eglot-ensure))
 
-(use-package evil
+(use-package which-key
+  :ensure nil
+  :defer nil
   :init
-  (setq evil-want-integration t
-        evil-want-keybinding nil
-		evil-respect-visual-line-mode t
-        evil-want-C-u-scroll t)
-  (evil-mode 1)
-  :config
-  (evil-set-undo-system 'undo-redo)
-  ;; restore emacs M-. behavior
-  (define-key evil-normal-state-map (kbd "M-.")
-			  #'xref-find-definitions)
-  ;; noremap zz za
-  (define-key evil-normal-state-map (kbd "z z")
-			  #'evil-toggle-fold)
-  ;; noremap z. zz
-  (define-key evil-normal-state-map (kbd "z .")
-			  #'evil-scroll-line-to-center))
+  (setq which-key-idle-delay 0.25)
+  (which-key-mode 1))
 
-(use-package evil-collection
-  :after evil
-  :config (evil-collection-init))
-
-(use-package magit)
+(use-package magit
+  :defer t)
 
 (use-package ediff
   :init
@@ -159,13 +136,10 @@
 
 (use-package hideshow
   :ensure nil
-  :after evil
   :hook (prog-mode . hs-minor-mode))
 
 (use-package smex
-  :bind (("M-x" . smex)
-         ("M-X" . smex-major-mode-commands)
-         ("C-c C-c M-x" . execute-extended-command))
+  :bind (("M-x" . smex))
   :init (smex-initialize))
 
 (use-package org
@@ -226,80 +200,121 @@
   (setq c-default-style
 		'((java-mode . "java") (awk-mode . "awk") (other . "stroustrup"))))
 
+(use-package multiple-cursors
+  :bind (("C-c m m" . mc/edit-lines)
+		 ("C-c m a" . mc/edit-beginnings-of-lines)
+		 ("C-c m e" . mc/edit-ends-of-lines)
+		 ("C-c m n" . mc/mark-next-like-this)
+		 ("C-c m p" . mc/mark-previous-like-this)
+		 ("C-c m h" . mc/mark-all-like-this))
+  :defer t)
+
+(use-package eshell
+  :defer t
+  :init
+  (defun eshell-other-window (&optional arg)
+	"Start an eshell buffer in another window."
+	(interactive "P")
+	(let ((buf (save-window-excursion
+				 (eshell (or arg t)))))
+	  (switch-to-buffer-other-window buf)))
+  (defun eshell/e (&rest paths)
+	"Open passed args in a buffer from eshell"
+	(dolist (path paths)
+	  (find-file path)))
+  :bind (("C-x t t" . (lambda (arg)
+						(interactive "P")
+						(eshell (or arg t))))
+		 ("C-x 4 t" . eshell-other-window)))
+
 (use-package eat
   :defer nil
-  :bind (("C-x t t" . eat)
-		 ("C-x 4 t" . eat-other-window)))
+  :init (eat-eshell-mode 1))
 
-;; (use-package exwm
-;;   :config
-;;   ;; (setq exwm-workspace-number 4)
-;;   (setq exwm-input-global-keys
-;; 		(append exwm-input-global-keys
-;;    				`(
-;;    				  (,(kbd "s-h") . windmove-left)
-;;    				  (,(kbd "s-j") . windmove-down)
-;;    				  (,(kbd "s-k") . windmove-up)
-;;    				  (,(kbd "s-l") . windmove-right)
-;;    				  (,(kbd "s-b") . switch-to-buffer)
-;; 				  (,(kbd "s-SPC") . (lambda (cmd)
-;; 									(interactive (list
-;; 												  (read-shell-command "$ ")))
-;; 									(start-process-shell-command cmd nil cmd)))
-;; 				  (,(kbd "s-<escape>") . exwm-reset))))
-;;   (dotimes (i 10)
-;; 	(exwm-input-set-key (kbd (format "s-%d" (if (= i 9) 0 (1+ i))))
-;; 						`(lambda ()
-;; 						   (interactive)
-;; 						   (exwm-workspace-switch-create ,i))))
-;;   ;; default x applications to char-mode
-;;   ;; (setq exwm-manage-configurations '((t char-mode t)))
-;;
-;;   ;; update buffer titles of x windows
-;;   (defun exwm-rename-buffer ()
-;; 	(interactive)
-;; 	(exwm-workspace-rename-buffer
-;; 	 (concat exwm-class-name ":"
-;; 			 (if (<= (length exwm-title) 50) exwm-title
-;;                (concat (substring exwm-title 0 49) "...")))))
-;;   (add-hook 'exwm-update-class-hook 'exwm-rename-buffer)
-;;   (add-hook 'exwm-update-title-hook 'exwm-rename-buffer)
-;;
-;;   ;; (defun async-shell-hidden-buffer (command)
-;;   ;; 	"Run async shell command without a window for the buffer."
-;;   ;; 	(interactive (list
-;;   ;; 				  (read-shell-command "Async shell command: ")))
-;;   ;; 	(let ((display-buffer-alist
-;;   ;; 		   '(("\\*Async Shell Command\\*"
-;;   ;; 			  (display-buffer-no-window)))))
-;;   ;; 	  (async-shell-command command)))
-;;   ;; (global-set-key (kbd "M-&") #'async-shell-hidden-buffer))
-;;   (exwm-wm-mode))
-
-(use-package openwith
-  :config
-  ;; throws some win32 compile error
-  (setq native-comp-async-report-warnings-errors nil)
-  (setq openwith-associations
-		(list
-		 (list (openwith-make-extension-regexp
-				'("pdf"
-				  "docx" "xlsx" "pptx"
-				  "doc" "xls" "ppt"
-				  "odt" "ods" "odp"))
-			   "zaread"
-			   '(file))
-		 (list (openwith-make-extension-regexp
-				'("mkv" "mp4" "avi"))
-			   "mpv"
-			   '(file))
-		 (list (openwith-make-extension-regexp
-				'("mp3" "opus" "flac" "wav" "aac"))
-			   "mpv"
-			   '(file))
-		 ;; (list (openwith-make-extension-regexp
-		 ;; 		'("jpg" "jpeg" "jxl" "png" "webp" "gif" "avif"))
-		 ;; 	   "mpv"
-		 ;;	   '(file)))
-		 ))
-  (openwith-mode 1))
+(use-package pdf-tools
+  :defer nil
+  :preface
+  (defun office-to-pdf--buffer (source)
+	(let* ((source (expand-file-name source))
+		   (attrs (file-attributes source))
+		   (key (secure-hash
+				 'sha256
+				 (prin1-to-string
+				  (list source
+						(file-attribute-modification-time attrs)
+						(file-attribute-size attrs)))))
+		   (cache-dir (expand-file-name
+					   "office-to-pdf"
+					   (let ((xdg-cache (getenv "XDG_CACHE_HOME")))
+						 (if (and xdg-cache (> (length xdg-cache) 0))
+							 xdg-cache
+						   (expand-file-name "~/.cache")))))
+		   (cached-pdf (expand-file-name (concat key ".pdf") cache-dir)))
+	  (unless (file-exists-p cached-pdf)
+		(make-directory cache-dir t)
+		(let* ((outdir (make-temp-file
+						(expand-file-name "convert-" cache-dir) t))
+			   (generated-pdf
+				(expand-file-name
+				 (concat (file-name-base source) ".pdf")
+				 outdir))
+			   status)
+		  (unwind-protect
+			  (progn
+				(message "Creating PDF for %s..." (file-name-nondirectory source))
+				(redisplay t)
+				(setq status
+					  (call-process "loffice" nil
+									"*loffice-pdf-conversion*" nil
+									"--convert-to" "pdf"
+									"--outdir" outdir
+									source))
+				(unless (and (integerp status)
+							 (zerop status)
+							 (file-exists-p generated-pdf))
+				  (user-error
+				   "PDF conversion failed. See *loffice-pdf-conversion*."))
+				(rename-file generated-pdf cached-pdf t))
+			(when (file-directory-p outdir)
+			  (delete-directory outdir t)))))
+	  (let ((buffer (find-file-noselect cached-pdf)))
+		(with-current-buffer buffer
+		  (setq default-directory (file-name-directory source))
+		  (rename-buffer (concat (file-name-base source) ".pdf") t))
+		buffer)))
+  (defun office-to-pdf--replace-buffer (buffer window)
+	(when (buffer-live-p buffer)
+	  (let ((pdf-buffer
+			 (with-current-buffer buffer
+			   (office-to-pdf--buffer buffer-file-name))))
+		(if (and (window-live-p window)
+				 (eq (window-buffer window) buffer))
+			(set-window-buffer window pdf-buffer)
+		  (display-buffer pdf-buffer))
+		(kill-buffer buffer))))
+  :init
+  (define-derived-mode office-to-pdf-mode fundamental-mode "Office PDF"
+	(run-at-time 0 nil #'office-to-pdf--replace-buffer
+				 (current-buffer) (selected-window)))
+  (add-to-list 'auto-mode-alist
+			   (cons (concat "\\.\\(?:"
+							 "odt\\|ods\\|odp\\|"
+							 "doc\\|xls\\|ppt\\|"
+							 "docx\\|xlsx\\|pptx\\|"
+							 "docm\\|xlsm\\|pptm\\|"
+							 "rtf"
+							 "\\)\\'")
+					 'office-to-pdf-mode))
+  (defun pdf-view-midnight-match-theme ()
+	"Match colors of pdf-tools-midnight-minor-mode to the current theme."
+	(interactive)
+	(setq-local pdf-view-midnight-colors
+				(cons (face-attribute 'default :foreground nil 'default)
+					  (face-attribute 'default :background nil 'default)))
+	(when (bound-and-true-p pdf-view-midnight-minor-mode)
+	  (pdf-view-midnight-minor-mode -1))
+	(pdf-view-midnight-minor-mode 1))
+  (pdf-tools-install)
+  :hook ((pdf-view-mode . pdf-view-roll-minor-mode)
+		 (pdf-view-mode . pdf-view-fit-height-to-window)
+		 (pdf-view-mode . pdf-view-midnight-match-theme)))
